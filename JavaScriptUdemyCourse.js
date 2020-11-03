@@ -198,5 +198,36 @@ If you need a back slash in a string \\
 can do `${variable.toUpperCase()}`
 
 `total price: $${price*quantity}`
- string kdlafjl";
+
+Null is the intentional absence of any value 
+Null must be set to null
+
+Undefined is a variable that does not have a value assigned to it 
+
+There is nothing defineed there 
+
+
+const u = undefined 
+Normall though, undefined is a value that I can bget back 
+let color; 
+color; 
+value is undefined 
+let currentUser = null;
+Later can set it to something 
+
+Explicitly assign a value to null 
+Undefined is no defined value 
+
+Math object 
+Math.PI is a value of PI
+Math.floor(3.657) => 3
+Math.round(3.6) => 4 
+Math.round(3.3) => 3
+Math.pow(7,2) => 49 
+Math.random() => random decimal between 0 and 1, non inclusinve
+
+Math.floor((Math.random() *10) + 1)
+
+
+string kdlafjl";
 
