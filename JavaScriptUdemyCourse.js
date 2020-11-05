@@ -229,5 +229,30 @@ Math.random() => random decimal between 0 and 1, non inclusinve
 Math.floor((Math.random() *10) + 1)
 
 
+typeof 99 #=> "number"
+"boolean"
+"string"
+"object"
+typeof undefined #=> "undefined"
+typeof null #=> "object"
+typeof does not need Parentheses
+
+parseInt('24') and parseFloat('24.987')
+parseInt('$99') #=> NaN
+parseInt('99cents') #=> 99
+Will break off if I have digits in the beginning
+Will return NaN if it doesn't have digits in it'
+
+== equality
+!= inequality
+=== strict equality
+!== strict inequality
+
+'A' < 'a' #=> true 
+All uppercase lettters are less than lowercase letters 
+Unicode characters in a string 
+String have unicode representation in a number 
+
+
 string kdlafjl";
 
