@@ -253,6 +253,17 @@ All uppercase lettters are less than lowercase letters
 Unicode characters in a string 
 String have unicode representation in a number 
 
+Double equals checks for equality of values but it doesnt care about type 
+It will coerce both values to a common type and then compares them 
+7 == '7' #=> true
+7 === '7' #=> false
+)
+
+0 == '' #=> true 
+0 == false #=> true
+0 === false #=> false 
+null == undefined #=> true
+null === undefined #=> false 
 
 string kdlafjl";
 
