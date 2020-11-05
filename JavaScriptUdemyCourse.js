@@ -265,5 +265,9 @@ It will coerce both values to a common type and then compares them
 null == undefined #=> true
 null === undefined #=> false 
 
+=== checks for equality of value and type 
+
+Access to our code after the fact 
+
 string kdlafjl";
 
