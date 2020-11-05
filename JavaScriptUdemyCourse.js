@@ -267,7 +267,121 @@ null === undefined #=> false
 
 === checks for equality of value and type 
 
+Right click to open a file 
+Or use command/N to start a file 
+In an html file: !tab  fills out html for you 
+<script src="app.js"></script>
+Work flow, create html file 
+Create script that leads to js file 
+
+Double click html file to open it in the browser
+
+alert("Message")
+console.error("Oh no")
+Shows up like an error 
+console.log(3+4, "hello", true) #=> 7 "hello" true 
+//prints them all out separated by spaces 
+
+
+if (num % 2 === 0) console.log("Even number")
+
 Access to our code after the fact 
+
+Falsy values: 
+false 
+0
+"" empty string 
+null
+undefined 
+NaN 
+
+Everything else is truthy 
+
+let mystery = undefined 
+
+if(mystery){
+
+} 
+Will not go inside this boolean 
+
+let loggedInUser;
+if(loggedInSuser){
+  console.log("You are logged in")
+} else {
+  console.log("Please log in")
+}
+
+above code will print "Please log in" because loggedInUser is undefined which is falsy 
+
+
+0/0 #=> NaN
+
+!null #=> true 
+! (0===0) //false 
+!(3 <= 4) //false
+!'asdas' //false 
+
+Using ! to create alternative code 
+if(flavor !== 'grape' && flavor !== 'cherry'){}
+if(!(flavor === 'grape' || flavor === 'cherry')){}
+
+Operator Precedence 
+
+let x = 7;
+x == 7 || x === 3 && x > 10; 
+
+Because the && operator takes place over ||
+Above is true 
+
+! has higher precedence than && which has higher precedence than ||
+
+Go to MDN table with precedence of every operator 
+() always wins 
+
+> takes precedence before && 
+
+switch(day){
+  case 1: 
+    console.log('1')
+    break;
+  case 2: 
+    console.log('2')
+    break;
+  case 3:
+  case 4: 
+    console.log('3 or 4');
+    break;
+  //If you enter in 3, it will run code, find it is empty
+  //and jump down to the next code and run until you reach break 
+  //Can do this if you want to have more than 1 case apply
+  //To the same piece of code
+  default: 
+    console.log('Invalid entry')
+    //default is like an else statment
+}
+//Switch is used to replace large if/else statements 
+
+If no break, will go down the entire list on the switch 
+After you find the initial match, without testing those other matches 
+
+Terniary
+
+statement ? if true : if false;
+
+let status = 'offline';
+let color;
+if(status === 'offline') {
+  color = 'red'
+} else {
+  color = 'green'
+}
+
+Or can do 
+
+let color = status === 'offline' ? 'red' : 'green'
+  Can check if status if offline to assign values to red or green 
+
+
 
 string kdlafjl";
 
