@@ -382,6 +382,43 @@ let color = status === 'offline' ? 'red' : 'green'
   Can check if status if offline to assign values to red or green 
 
 
+Must focus on js but also on bootsrap
+
+Array sordered collections of values
+List of comments on IG post
+
+Collection of levels in a game 
+Songs in a playlist 
+
+let myCollection = [12, 'dog', true, null, NaN]
+I can put different types into an array 
+Other languages I have to specify what I put in the array
+
+new Array()
+
+new Array(1,2,3,4,5)
+
+colors[7] #=> undefined 
+"asdas"[123] #=> undefined
+
+strings immutable 
+
+shoppingList[shoppingList.length] = 'Tomatoes'
+Does add to end of an array like push 
+
+MDN array shows long list of methods on side 
+
+array.push(true) #=> length of the array 
+
+let str = 'hello' #=> undefined 
+
+str.toUpperCase() #=> 'HELLO'
+
+.pop() returns removed items
+
+If nothing in array 
+array.pop() #=> undefined
+str #=> 'hello'
 
 string kdlafjl";
 
