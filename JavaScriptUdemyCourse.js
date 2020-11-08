@@ -500,6 +500,60 @@ nums.sort() #=> [10, 10000, 34]
 Compares by converting to a string first 
 By Unix code 
 
+let Strings/objects/numbers 
+let fruit = "orange";
+let color = fruit 
+let fruit = "watermelon"
+fruit => "watermelon"
+color => "orange"
+
+B/c these are primitive types, when we create a variable to store one 
+We are creating a value type variable 
+Every single thing is stored in memory. 
+The actual thing is stored in memory to store the information for that variable 
+
+DOES NOT WORK FOR ARRAYS 
+
+JS stores a reference to that array 
+THINK OF IT AS A A memory address that were not able to see 
+Distinction is when we work with arrays and put htem in a variable, the variable 
+itself does not hold the array
+It holds a pointer to where the array is in memory 
+Compared to a value type variable where the actual value is stored  "bananas"
+
+
+let nums = [5, 6, 7, 8]
+let otherNums = nums 
+They are both pointing the same thing 
+nums.pop()
+otherNums // [5, 6, 7]
+
+array is a reference to where it is in memory  so can pass 
+by reference to other variables 
+
+Let x = 34; 
+x += 5 
+39 
+x => 39 
+
+const city = "Lisbon"
+city // "Lisbon"
+city = London #=> 
+
+const myEggs = ['brown', 'brown']
+myEggs.push('purple') works 
+myEggs[0] = 'green' works 
+myEggs = ['blue', 'pink'] DOES NOT WORK, gets Uncaught TypeError: Assignment 
+to constant variable 
+
+Const is used all the time with arrays, unless there is a reason 
+I need to point to entirely different array 
+Array might change and I point to an entirely new array 
+Majority of array variables in real world and tutorials are mostly done with const 
+Unless there is a good reason to use let 
+Const when appropriate 
+
+
 string kdlafjl";
 
 
