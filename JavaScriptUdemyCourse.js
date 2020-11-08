@@ -553,6 +553,18 @@ Majority of array variables in real world and tutorials are mostly done with con
 Unless there is a good reason to use let 
 Const when appropriate 
 
+const colors = [
+  ['red', 'crimson'],
+  ['orange', 'yellow']
+]
+
+const board = [
+  ['0', null, 'X'],
+  [null, 'X', '0'],
+  ['X', '0', null]
+]
+
+Multi dimensional arrays are really common with boards 
 
 string kdlafjl";
 
