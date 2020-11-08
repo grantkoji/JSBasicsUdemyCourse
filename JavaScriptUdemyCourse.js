@@ -414,11 +414,92 @@ let str = 'hello' #=> undefined
 
 str.toUpperCase() #=> 'HELLO'
 
-.pop() returns removed items
+.shift() and .pop() returns removed items
 
 If nothing in array 
 array.pop() #=> undefined
 str #=> 'hello'
 
+When you unshift and add something, you get returend the length of the list 
+unshift a cereal bowl. And then a mug 
+Then inside the mug a dirty spoon 
+
+
+unshift can add two items in as a chunk 
+dishesToDo.unshift('fork', 'knife')
+Can do this with push as well 
+
+Reading documents 
+const new_array = old_array.concat([value1[, value2[, ...[, valueN]]]])
+The [] means it is optional 
+
+//can add multiple arrays in concat that will all concat
+let allFood = fruits.concat(veggies, meats)
+
+NOT AVAILABLE IN IE 
+.includes() #=> tells me if it includes an array or not 
+ingredients.includes('fish')
+Doesn't include a slew of odd ingredients, we get false'
+We can get false or true 
+.includes('')...looks for an exact match 
+optional includes is a search fro index 
+ingredients.includes('water', 0)
+
+if(ingredients.includes('flour')){
+  console.log("I'm gluten free, I cannot eat that")
+}
+
+Returns -1 
+ingredients.indexOf('eel')
+Either rtuerns the index or -1 
+
+Can also do 
+ingredients.indexOf('cheese', 3)
+//searching for after this index i
+ingredient.indexOf('flour') !== - 1;
+
+join and reverse()
+let letters = ['T', 'C', 'G']
+letters.reverse()
+
+.reverse() reverses whatever the contents are 
+
+let letters = ["T", "C", "E", "P", "S"]
+letters.join() //"T,C,E,P,S"
+letters.reverse().join('-') //"S-P-E-C-T"
+
+let numbers = [12.3, 60, false]
+numbers.join() // "12.3,60,false"
+.join() will turn them into a string
+
+let animals = []
+
+animals.slice(0, 2)
+Does not include index 2
+
+.slice(-3)
+Go back 3 indices from the end 
+
+.slice(-3, -1)
+
+to use .splice to insert 
+
+animals = ["shark", "salmon"]
+animals.splice(1, 0, "octopus") // [] b/c not deleting anyting
+animals // ["sharks", "octopus", "salmon"]
+
+animals.splice(2, 1) #=> ["salmon"]
+animals #=> ["sharks", "octupus"]
+
+.sort() 
+alphabetically 
+.sort() updates array in place and retursn the sorted array 
+
+let nums = [34, 10, 10000]
+nums.sort() #=> [10, 10000, 34]
+Compares by converting to a string first 
+By Unix code 
+
 string kdlafjl";
+
 
