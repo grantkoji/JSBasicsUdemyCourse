@@ -566,6 +566,7 @@ const board = [
 
 Multi dimensional arrays are really common with boards 
 
+Plan out the next steps 
 string kdlafjl";
 
 
