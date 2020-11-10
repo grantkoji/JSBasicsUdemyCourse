@@ -46,8 +46,11 @@ Javascript does follow standard order of operations
 Parenthesis, Exponent, Multiplication, Division, Addition, Subtraction
 PEMDAS 
 
+Not a number:
+
 1 + NaN = NaN 
 1 / 0 = NaN 
+
 Needs to be NaN  
 Needs to be written out that way 
 
@@ -58,6 +61,12 @@ Also -Infinity
 
 Uncaught SyntaxError: Identify 'averageRating' has already been declared 
 If I try to call let twice 
+
+
+let maxValue = -Infinity
+
+
+
 
 score = score + 10
 score += 10
@@ -86,10 +95,25 @@ Can add strings
 
 firstName + ' ' + lastName
 
-"hi" + 1 => "hi1"
-For netative
-"hi" - 2 => NaN 
-;
+"hi" + 1 // "hi1"
+"hi" - 2 // NaN
+let greeting = "hello friend!"
+greeting.length // 13
+  //Spaces and exclamation points are considered characters in a string
+greeting[1] // "e"
+greeting[17] // undefined
+greeting.indexOf("e") // 1
+  //Returns the index of the first match
+greeting.indexOf("friend") // 6
+  //Returns the index of the first character if there is a match
+greeting.indexOf("goodbye") // -1
+  //Note that .indexOf() returns -1 when not found
+
+
+let tvShow = 'catdog'
+tvShow.indexOf('cat') //=> 0
+tvShow.indexOf('dog') //=> 3
+String
 
 Strings are indexed
 0 to string.length - 1 
@@ -126,6 +150,13 @@ msg.toUpperCase() //=> "YOU ARE SO GROUNDED MR"
 but msg //=> "you are so grounded mr"
 MSG NOT CHANGING B/C STRINGS ARE IMMUTABLE 
 
+
+
+let message = "ouch, that is hot"
+message.toUpperCase() // "OUCH, THAT IS HOT"
+//But message still returns:
+message // "ouch, that is hot"
+
 .toLowerCase()
 FORGET TO put in message and action then we will 
 
@@ -145,10 +176,16 @@ tvShow.indexOf('z') //=> -1 (not found)
  'superhero'.slice(0,5) => 'super'
  The start is first argument, second argument is one index after end 
 
- let annoyignLaugh = 'so funny! ha'
- annoyignLaugh.replace('ha', 'haha') //=> 'so funny! haha'
+ let comment = "That is funny, ha!"
+ comment.replace("ha", "haha") // "That is funny, haha!"
 
- 'ha ha ha'.replace('ha', 'hee') //=> 'hee ha ha'
+ "bye, bye, bye".replace("bye", "by") // "by, bye, bye"
+//Only the first "bye" in the string is replaced.
+
+//Putting .slice and .replace together:
+"GARBAGE!".slice(2, 7).replace("B", "") // "RAGE"
+
+
  Only replaces the first 'ha', not all of them
 
  In MDN, optional parameters in brackets 
@@ -166,18 +203,37 @@ let index = yell.indexOf('!')
 index //=> 7 
   B/c index of stops at first patch 
 
-'GARBAGE!'.slice(2).replace('B', '')
-//=> 'RAGE!'
+
+Additional operations that you can use on a 
+
+
+
 
 String escapes
  Also known as escape sequences 
  Combinations of characters with a string 
- 
- "He said I ain\'t happy"
- //=> "He said I ain't happy"
 
- "He said \"I ain\'t happy\""
- //=> "He said "I ain't happy""
+//  \' or \" gives you a quotation mark without interfering with the string's quotation marks 
+"I can\'t believe it\'s not butter" // "I can't believe it's not butter"
+"He said, \"I can\'t believe it\'s not butter\"" //"He said, "I can't believe it's not butter""
+
+//You can use "" and '' separately to place a quote inside a string
+"He said, 'I can\'t believe it\'s not butter'" //"He said, 'I can't believe it's not butter'"
+'He said, "I can\'t believe it\'s not butter"' //"He said, "I can't believe it's not butter""
+
+//Use \n to jump a line in the string. 
+"Hi\nFriend"
+//"Hi
+//Friend"
+
+//Use "\\" to place a backslash in a string 
+"Return a backslash: \\" // "Return a backslash: \"
+ 
+
+
+
+"He said I ain\'t happy" // "He said I ain't happy"
+ "He said \"I ain\'t happy\"" //=> "He said "I ain't happy""
 
 //  \' or \" gives you the quote without being part of string 
 'Hello\nGoodbye'
