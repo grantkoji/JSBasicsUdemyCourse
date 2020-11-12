@@ -623,6 +623,46 @@ const board = [
 Multi dimensional arrays are really common with boards 
 
 Plan out the next steps 
+
+Different tpes of data all groupe toghether
+\
+
+.length is a property 
+
+Objets are collections of properties
+Properties are a key value pair 
+Rather than accessing data using an index, we use custom keys 
+
+objects are dictionaries
+You have the key to loook it up
+
+Object is a container that contains information in the form of key value pairs 
+
+When you store an object in a variale, you are associated a key and a value
+
+Spacing doesn't matter, can go '
+
+
+
+
+When we make a number/additiona, you can use 
+Talking about objects in general in javascript
+
+Order is not the oebjective of an object
+
+Can access into, using a . 
+A . is a property 
+Can also use a key to extracint uginsg of olay card Fitdata average 1 orkout er day
+
+
+Object, can use anything as a value 
+Object properties keys are automatically not uppercase
+PUt come value intio it
+
+Object key is indeed a string 
+
+
+
 string kdlafjl";
 
 
