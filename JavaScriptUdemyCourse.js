@@ -661,8 +661,137 @@ PUt come value intio it
 
 Object key is indeed a string 
 
+const numbers = {
+  100: 'one hundred',
+  16: 'sixteen'
+};
+
+numbers.100 #=> Uncaught syntax error: Unexpected number 
+numbers[100] #=> "one hundred"
 
 
+const numbers = {
+  '100': 'one hundred'
+}
+numbers['100'] #=> "one hundred"
+
+can't do '
+
+let my cat = 'dakfdalfj'
+Uncaught syntax error: unexpected identifier 
+let 76trombones = 'song'
+Uncaught SyntaxError: invalid or 
+
+const numbers = {
+  '76 trombones': 'great song'
+}
+numbers['76 trombones'] #=> 'great song!'
+
+numbers.76 trombones 
+does not work 
+
+const palette = {
+  red: '#eb4d4b',
+  yellow: '#f9ca24',
+  blue: '#30336b'
+}
+
+let mysteryColor = 'yellow'
+
+palette.blue #=> '#30336b'
+palette.yellow #=> '#f9ca24'
+palette[yellow] // Uncaught reference error: yellow is not defined 
+//needs to be a string 
+palette['yellow'] #=> '#f9ca24 '
+
+palette[mysterColor] #=> 'f9ca24'
+palette.mysteryColor #=> undefined 
+with variable, have to use square brackets 
+palette['bl'+'ue'] #=> '#30336b'
+
+Key name not valid as identifier is undefined 
+When you want to use a variable or some dynamic value as your key name 
+YOU HAVE TO USE SQUARE BRACKETS 
+
+Update a value or give an initial value 
+const userReviews = {}; 
+'queenBee49' => 4.5 
+userReviews.['queenBee49'] = 4.0;
+userReviews => {queenBee49: 4}
+userReviews.mrSmith78 = 3.5;
+userReviews #=> {queenBee49: 4, mrSmith: 3.5}
+
+userReviews['queenBee49'] += 2 works 
+or userReviews.mrSmith78++ works as well 
+
+Values of an array are not actually stored in a variable 
+Its an arrow to an actual array 
+Works the same for an object 
+
+const palette = {
+  red: 'dkaf',
+  yellow: 'llal'
+}
+
+const palette2 = palette;
+palette2.green = 'ebf8'
+palette will be updated as well as palette 2 
+B/c they are referring to the same thing in memory
+
+Objects are reference types just like arrays
+So can use const for objects and arrays 
+
+If I wind up assigning palette to something entirely differnt, then 
+must use let, but if keeping as object, use const
+
+Checking for equality 
+=== and == 
+How they behave with arrays and objects 
+let nums = [1, 2, 3];
+let mystery = [1, 2, 3];
+nums === mystery is false 
+nums == mystery is false 
+This is because they are reference types stored 
+
+Not storing the actual array, storing a reference to the array 
+So nums has memory piece 
+nums -> 12873712783 
+Cant store the entire thing, just storing a reference 
+
+So with -- and --- 
+
+let moreNums == nums; 
+ nums === moreNums #=> true;
+ nums == moreNums #=> true;
+
+[] === [] returns false 
+[] == [] returns false 
+
+ if(user.notifications === []) {
+  console.log('No new notificatons')
+  // Will never print out b/c user.notifications will never --- []
+ }
+
+ Instead, go with 
+ if(!user.notifications.length){
+   console.log('No New Notifications')
+   //this work if there's an empty array since 0 is falsey
+ }
+
+Cant easily compare values in arrays if looking for equality 
+Bc they are checking for equality of reference, not for equality of contents
+[1, 2, 3] === [1, 2, 3] will return false 
+
+
+To compare arrays, need to manually compare every element in a n array 
+Is the first element message, is the second element alert
+
+false 
+{a:1} === {a:1} is false 
+let data1 = {a:1} 
+let data2 = data1
+data1 === data2 #=> true 
 string kdlafjl";
+
 
 
