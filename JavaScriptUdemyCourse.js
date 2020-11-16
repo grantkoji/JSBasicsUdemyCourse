@@ -791,6 +791,44 @@ false
 let data1 = {a:1} 
 let data2 = data1
 data1 === data2 #=> true 
+
+
+This article will be focusing on const after this quick detour to discuss the differences between var and let. Unlike are taught about var,letand const. var variables are 'function scope', which means they are only available inside the function they're created in, or if they are not created inside of a function, they are scoped globally. var can be tough because it does not stay contained in the scope of its block (the set of opening and closing curly brackets).  let does stay contained inside the block scope of wherever it is invoked (its lexical scope).
+Make a photo with console.log("Function scope") , console.log("block scope") 
+function scope(){
+ console.log(thisVariable)
+ if(true){
+ var thisVariable = "Function scope"
+ }
+}
+No need to use var anymore since let is covering what var is supposed to do. Var can be tricky becvause it does not stay contained in block scope. Both var and let can be reassigned and updated. var variables are
+The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
+var variables are 'function scope.' What does this mean? It means they are only available inside the function they're created in, or if not created inside a function, they are 'globally scoped.'
+If var is defined inside a function and I subsequently try to call it outside the function, it won't work.
+What are the benefits of using let and const? Rather than being scoped to the function they are scoped to the block.
+What is the block? A block is a set of opening and closing curly brackets.
+
+
+Use const for values that are not going to change. Use let for values that are going to change. 
+Using const. In my head, arrays and objects are going to change. 
+
+
+Values of an array are not actually stored in a variable
+Its an arrow to an actual array
+Works the same for an object
+const palette = {
+red: 'dkaf',
+yellow: 'llal'
+}
+const palette2 = palette;
+palette2.green = 'ebf8'
+palette will be updated as well as palette 2
+B/c they are referring to the same thing in memory
+Objects are reference types just like arrays
+So can use const for objects and arrays
+If I wind up assigning palette to something entirely differnt, then
+must use let, but if keeping as object, use const
+Checking for equality
 string kdlafjl";
 
 
