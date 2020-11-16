@@ -829,6 +829,157 @@ So can use const for objects and arrays
 If I wind up assigning palette to something entirely differnt, then
 must use let, but if keeping as object, use const
 Checking for equality
+
+
+function varScope(){
+  if(true){
+    var varVariable = "I am not contained to this block"
+   }
+  console.log(varVariable)
+}
+
+function letScope(){
+  if(true){
+    let letVariable = "I am contained to this block"
+   }
+  console.log(letVariable)
+}
+
+varScope() //Prints "I am not contained to this block"
+letScope() //Uncaught ReferenceError: letVariable is not defined
+
+
+
+In the case above of letVariable, it is being called outside of the block in which it is invoked. Since the scope 
+If you try to call a variable outside of the block in which it is invoked, 
+when the , then use let he 2015 version of JavaScript (ES6 - ECMAScript 2015) allows the use of the const keyword to define a variable that cannot be reassigned, and the let keyword to define a variable with restricted scope.The simplistic message is that you use const
+First, a quick detour regarding var,let.This article will be focusing on const after this quick detour to discuss the differences between var and let. Unlike are taught about var,letand const. 
+Make a photo with console.log("Function scope") , console.log("block scope") 
+function scope(){
+ if(true){
+let thisVariable = "Function scope"
+ }
+console.log(thisVariable)
+}
+Uncaught ReferenceError: letVariable is not defined. 
+Var can be tricky becvause it does not stay contained in block scope. Both var and let can be reassigned and updated. var variables are
+The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
+var variables are 'function scope.' What does this mean? It means they are only available inside the function they're created in, or if not created inside a function, they are 'globally scoped.'
+If var is defined inside a function and I subsequently try to call it outside the function, it won't work.
+What are the benefits of using let and const? Rather than being scoped to the function they are scoped to the block.
+What is the block? A block is a set of opening and closing curly brackets.
+
+Instead, go with
+if(!user.notifications.length){
+console.log('No New Notifications')
+//this work if there's an empty array since 0 is falsey
+}
+
+const numbers = [1, 2, 3];
+const otherNumbers = [1, 2, 3];
+numbers === otherNumbers // false
+numbers == otherNumbers //false
+const emptyArray = []
+const emptyObject = {}
+emptyArray === [] //false 
+emptyArray == [] //false
+emptyObject === {} //false
+emptyObject == {} //false
+//More generally
+[] === [] //false
+[] == [] //false
+{} === {} //false
+{} == {} //false
+
+
+
+const lineUp = {
+  leadOff: 1,
+  cleanUp: 4,
+  }
+const lineUp2 = lineUp;
+lineUp2 === lineUp //true
+lineUp2 == lineUp //true 
+
+//Also, if you change lineUp2, it will change lineUp
+lineUp2.bottom = 9;
+
+lineUp //#=>
+  {
+  leadOff: 1,
+  cleanUp: 4,
+  bottom: 9
+  }
+  //lineUp will be updated as well as lineUp2 because they are referring to the same place in memory
+
+//This works with objects as well
+let object1 = { b: 2}
+let object2 = object1
+object1 === object2 // true
+//And any change to the contents of object2 will also change the contents of object1
+
+Below are a couple of other use cases of checking for equality or arrays and objects. 
+
+
+
+
+
+
+const city = "Lisbon"
+city // "Lisbon"
+city = London #=>
+let Strings/objects/numbers
+let fruit = "orange";
+let color = fruit
+let fruit = "watermelon"
+fruit => "watermelon"
+color => "orange"
+B/c these are primitive types, when we create a variable to store one
+We are creating a value type variable
+Every single thing is stored in memory.
+The actual thing is stored in memory to store the information for that variable
+DOES NOT WORK FOR ARRAYS
+JS stores a reference to that array
+THINK OF IT AS A A memory address that were not able to see
+Distinction is when we work with arrays and put htem in a variable, the variable
+itself does not hold the array
+It holds a pointer to where the array is in memory
+Compared to a value type variable where the actual value is stored "bananas"
+let nums = [5, 6, 7, 8]
+let otherNums = nums
+They are both pointing the same thing
+nums.pop()
+otherNums // [5, 6, 7]
+
+const objectEx = {};
+objectEx.first = "first addition";
+objectEx.second = "second addition";
+objectEx //returns {first: "first addition", second: "second addition"}
+//without an error, even though the objectEx variable is declared using the const keyword
+
+
+
+
+
+
+//An exception when using const versus let
+
+const baseballTeams = ['Yankees', 'Red Sox']
+baseballTeams.push('Dodgers') // works as baseballTeams 
+//now returns ['Yankees', 'Red Sox', 'Dodgers']
+baseballTeams[0] = 'Mets' //works as baseballTeams 
+//now returns ['Mets', 'Red Sox', 'Dodgers']
+baseballTeams = ['Knicks', 'Celtics'] //DOES NOT WORK
+//Gets an Uncaught TypeError: Assignment to Constant Variable.
+//Because you are trying to change the memory reference. 
+
+//If you are trying to change the memory reference, you must use the let keyword.
+let baseballTeams = ['Yankees', 'Red Sox']
+baseballTeams = ['Knicks', 'Celtics'] //works
+
+
+
+
 string kdlafjl";
 
 
