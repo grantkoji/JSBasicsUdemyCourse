@@ -1037,9 +1037,13 @@ for (let i = 0; i < magicSq.length; i++){
 for (let row of magicSq){
   let sum = 0
   for (let num of row){
-    
+
   }
 }
+
+If you need to care about indices, just use a traditional for loop 
+
+
 string kdlafjl";
 
 
