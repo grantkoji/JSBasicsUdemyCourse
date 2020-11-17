@@ -978,8 +978,68 @@ let baseballTeams = ['Yankees', 'Red Sox']
 baseballTeams = ['Knicks', 'Celtics'] //works
 
 
+//using -= in a for loop
 
+for(i = 200; i >= 0; i -= 25 ){
+  console.log("message")
+}
 
+for(i = 200; i >= 0; i = i - 25 ){
+  console.log("message")
+}
+
+const word = "string"
+for(let i = word.length - 1; i >= 0; i--){
+  console.log(word[i])
+}
+
+//to get a whole number
+Math.floor(Math.random() * 10)
+
+//If you break in a for loop that is nested, it only breaks 
+//Out of that inner for loop
+
+while(true){
+  if(target === guess){
+    break;
+  }
+}
+
+for...of 
+Not used in Internet Explorer
+for (variable of iterable){
+  statement
+}
+iterable items include arrays and strings 
+
+let array = [1, 2, 3, 4]
+
+for (let number of array){
+  console.log(number)
+}
+
+for (let char of "this is a string"){
+  console.log(char.toUpperCase())
+}
+
+const magicSq = [[1,2,3],
+                [4, 5, 6],
+                [7, 8, 9]
+                ]
+
+for (let i = 0; i < magicSq.length; i++){
+  let row = magicSq[i]
+  let sum = 0
+  for (let j = 0; j < row.length; j++){
+  }
+}                
+//can instead use for of
+for (let row of magicSq){
+  let sum = 0
+  for (let num of row){
+    
+  }
+}
 string kdlafjl";
 
 
