@@ -1007,43 +1007,269 @@ while(true){
 
 for...of 
 Not used in Internet Explorer
-for (variable of iterable){
-  statement
+
+//Iterable items include Arrays and Strings 
+for (let variable of iterable){
+  statement involving variable
 }
-iterable items include arrays and strings 
+
 
 let array = [1, 2, 3, 4]
 
 for (let number of array){
   console.log(number)
 }
+//Prints:
+//1
+//2
+//3
+//4
 
-for (let char of "this is a string"){
+for (let i = 0; i < "louder".length; i++){
+  console.log("louder"[i].toUpperCase())
+}
+//Prints:
+//L
+//O
+//U
+//D
+//E
+//R
+
+for (let char of "louder"){
   console.log(char.toUpperCase())
 }
+//Prints:
+//L
+//O
+//U
+//D
+//E
+//R
 
-const magicSq = [[1,2,3],
-                [4, 5, 6],
-                [7, 8, 9]
-                ]
 
-for (let i = 0; i < magicSq.length; i++){
-  let row = magicSq[i]
+const square = [
+                    [1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9]
+                  ]
+
+function sumSquare(){
   let sum = 0
-  for (let j = 0; j < row.length; j++){
+  for (let i = 0; i < square.length; i++){
+    let row = square[i]
+    for (let j = 0; j < row.length; j++){
+      sum += row[j]
+    }
   }
-}                
-//can instead use for of
-for (let row of magicSq){
-  let sum = 0
-  for (let num of row){
-
-  }
+  return sum
 }
+
+sumSquare() //returns 45
+
+//can instead use for of to create cleaner looking code
+function forOfSumSquare(){
+  sum = 0
+  for (let row of square){
+    for (let num of row){
+      sum += num
+    }
+  }
+  return sum
+}
+
+forOfSumSquare() //returns 45
+
+
+
+
 
 If you need to care about indices, just use a traditional for loop 
 
+Do not use for of when dealing with two arrays that you are using 
+together (matching them based off of their indices)
 
+Let's say you have an array of cities and an array of team names. '
+Using a for of loop would be complicated with respect to 
+
+
+const cities = ['Buffalo', 'Dallas', 'Seattle']
+const teams = ['Bills', 'Cowboys', 'Seahawks']
+
+//Using a for loop to Print the City and Name
+for (let i = 0; i < cities.length; i++){
+  console.log(`${cities[i]} ${teams[i]}`)
+}
+//Would Print:
+// Buffalo Bills
+// Dallas Cowboys
+// Seattle Seahawks
+
+//Nested for...of loop does not work
+for (let location of cities){
+  for (let name of teams){
+    console.log(`${location} ${name}`)
+  }
+}
+//Would Print: 
+// Buffalo Bills
+// Buffalo Cowboys
+// Buffalo Seahawks
+// Dallas Bills
+// Dallas Cowboys
+// Dallas Seahawks
+// Seattle Bills
+// Seattle Cowboys
+// Seattle Seahawks
+
+//Need to use .indexOf() to match the correct indices
+//for the team's city and name with this for...of loop
+for (let location of cities){
+  for (let name of teams){
+    if (cities.indexOf(location) === teams.indexOf(name)){
+      console.log(`${location} ${name}`)
+    }
+  }
+}
+//Would Print:
+// Buffalo Bills
+// Dallas Cowboys
+// Seattle Seahawks
+
+Everything winds up as a string in an object for its keys 
+
+const teams = {
+  Denver: "Broncos",
+  "New Orleans": "Saints",
+  Philadelphia: "Eagles"
+}
+
+for(let name of teams){
+  console.log(name)
+}
+//Uncaught TypeError: teams is not iterable
+
+Object.keys(teams) // ["Denver", "New Orleans", "Philadelphia"]
+Object.values(teams) // ["Broncos", "Saints", "Eagles"]
+//Object.keys(teams) and Object.values(teams) are iterable. 
+
+for (let city of Object.keys(teams)){
+  console.log(city)
+}
+//Prints:
+//Denver
+//New Orleans
+//Philadelphia
+
+for (let name of Object.values(teams)){
+  console.log(name)
+}
+//Prints:
+//Broncos
+//Saints
+//Eagles
+
+for (let key of Object.keys(teams)){
+  console.log(`${key} ${teams[key]}`)
+}
+//Prints:
+//Denver Broncos
+//New Orleans Saints
+//Philadelphia Eagles
+
+
+const ratings = Object.values(movieReviews)
+let total = 0;
+for(let r of ratings){
+  total += r;
+}
+total /= ratings.length 
+//total = total / ratings.length
+
+For...in 
+Loop over the keys in an object 
+
+for (let variable in object){
+  statement involving variable
+}
+
+const teams = {
+  Denver: "Broncos",
+  "New Orleans": "Saints",
+  Philadelphia: "Eagles"
+}
+
+//for...in automatically finds the key in an Object
+for(let key in teams){
+  console.log(key)
+}
+//Prints:
+//Denver
+//New Orleans
+//Philadelphia
+
+for(let key in teams){
+  console.log(teams[key])
+}
+//Prints:
+//Broncos
+//Saints
+//Eagles
+
+for(let key in teams){
+  console.log(`${key} ${teams[key]}`)
+}
+//Prints:
+//Denver Broncos
+//New Orleans Saints
+//Philadelphia Eagles
+
+
+let arrayNumbers = [10, 20, 30, 40]
+
+for (let k in arrayNumbers){
+  console.log(k)
+}
+//Prints:
+//0
+//1
+//2
+//3
+
+//Treats the Array, [10, 20, 30, 40], like an Object:
+{
+  0: 10,
+  1: 20,
+  2: 30, 
+  4: 40
+}
+
+for (let k in arrayNumbers){
+  console.log(k, ": ", arrayNumbers[k])
+}
+
+//Prints:
+//0: 10
+//1: 20
+//2: 30
+//3: 40
+
+
+for (let i = 0; i < arrayName.length; i++){
+  statement involving arrayName[i]
+}
+
+//K
+for (let keyName of Object.keys(objectName){ 
+  statement 
+}
+
+
+for (let valueName of Object.values(objectName){ 
+  statement 
+}
+
+We can loop over the keys and the values. 
 string kdlafjl";
 
 
