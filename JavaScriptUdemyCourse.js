@@ -1270,6 +1270,32 @@ for (let valueName of Object.values(objectName){
 }
 
 We can loop over the keys and the values. 
+
+There are a lot fo quirks with functions
+
+2 step process:
+Define the function 
+Doesn't do anything with running the code'
+Run the function 
+
+Methods ar efunctions
+Methods are actions that have been wrapped up in a name and runs on as a function 
+
+Defining functions
+// function declaration or function statement
+function functionName(){
+  //do something
+}
+//Should not start with a number 
+//Should not start with 
+
+functionName()
+//called invoking the function, also called running the function 
+
+function rollDie(){
+  Math.floor(Math.random() * 6) + 1;
+}
+
 string kdlafjl";
 
 
