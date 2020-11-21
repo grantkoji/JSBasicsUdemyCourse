@@ -1296,6 +1296,13 @@ function rollDie(){
   Math.floor(Math.random() * 6) + 1;
 }
 
+
+To do list
+Start the project 
+Continue with thiese coding things for algorithms
+Buy and start alo.expert 
+Work on this project with Bulldogs 
+Can start as a web page and also be a native app
 string kdlafjl";
 
 
