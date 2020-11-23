@@ -1297,6 +1297,40 @@ function rollDie(){
 }
 
 
+functon greet(nickname){
+  console.log(nickname)
+}
+
+You can pass in an argument 
+Technically variables written in function 
+are called parameters, not arguments 
+numRolls is a parameter
+function throwDice(numRolls){
+
+}
+
+We have been using argument for exact number
+square(4)
+In that case, it is called an argument 
+When we pass in the value.
+When we call the function, put in the number 4
+
+A parameter is when we create the function, the 
+variable we are placing inside the function 
+
+function divide(a, b){
+  
+}
+Parameters a, b 
+divide(4, 2)
+Arguments 4, 2
+
+If an argument is missing, that parameter will have 
+a value of undefined 
+4 / undefined #=> NaN
+
+
+
 To do list
 Start the project 
 Continue with thiese coding things for algorithms
