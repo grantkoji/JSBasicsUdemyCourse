@@ -1424,3 +1424,41 @@ function isValidPassword(password, username){
   return !tooShort && !hasSpace && !tooSimilar
 }
 
+function avg(arr){
+  //
+  let sum = 0
+  for(let num of arr){
+    sum += num
+  }
+  return sum/arr.length
+}
+
+pangram is a sentence that contains every letter of the alphabet 
+
+//naive way
+function isPangram(sentence){
+  if(sentence.indexOf('a') != -1)
+  if(sentence.indexOf('b') != -1)
+}
+
+function isPangram(sentence){
+  let lowerCased = sentence.toLowerCase()
+ for(let char of 'abcdefghijklmnopqrstuvwxyz'){
+  if (lowerCased.indexOf(char) === -1){
+    return false
+  }
+ }
+ return true;
+}
+
+//includes is not supported in IE but is easier to read 
+
+function isPangram(sentence){
+  let lowerCased = sentence.toLowerCase()
+ for(let char of 'abcdefghijklmnopqrstuvwxyz'){
+  if (!lowerCased.includes(char)){
+    return false
+  }
+ }
+ return true;
+}
