@@ -1357,7 +1357,28 @@ When you actually return something there needs to be one value
 Cant do return x y 
 Because that is two separate values 
 
+improvement on basic if else statements 
 
+function isPurple(color){
+  if (color.toLowerCase() === 'purple'){
+    return true;
+  }
+  return false;
+}
+
+function isPurple(color){
+  return color.toLowerCase() === 'purple'
+  //this will return true or false 
+}
+
+function containsPurple(arr){
+  for (let color of arr){
+    if (color === 'purple' || color === 'magenta'){
+      return true;
+    }
+  }
+  return false;
+}
 
 
 
