@@ -1339,5 +1339,26 @@ Work on this project with Bulldogs
 Can start as a web page and also be a native app
 string kdlafjl";
 
+const scream = 'hello'.toUpperCase()
+"
+""
+Printing something in console is something different than returning it 
+Arrow pointed in other direction is a returend value .AHELLO is a console.log 
+But see a returned value, which you can pass on to another fucntion 
+
+Most applicaiton,s we do not print much to the console. 
+
+Maybe there is a line or two that is left in there 
+But the4res a message in there to prevent people from runnning code or writing something that is sketchy 
+Not console.loggging unless we are testing things 
+
+rules of returning 
+When you actually return something there needs to be one value 
+Cant do return x y 
+Because that is two separate values 
+
+
+
+
 
 
