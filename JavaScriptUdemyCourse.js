@@ -1688,6 +1688,139 @@ isChild(92) #=> false
 const isInNineties = makeBetweenFunc(1990, 1999);
 const isNiceWeather = makeBetweenFunc(60, 79);
 
+Callback Functions 
+A callback function is a function passed into 
+another function as an argument, which is then invoked inside the outer 
+function. 
+
+function callTwice(func){
+  func();
+  func();
+}
+
+function laugh(){
+  console.log('')
+}
+callTwice(laugh)
+//laugh is a callback function 
+
+The function taht we pass in is the callback 
+Often we use anonymous functions when we have callbacks 
+functionName(anonymousFunction)
+
+setTimeout(){
+
+}
+
+function grumpus(){
+  alert('Go away')
+}
+
+setTimeout(grumpus, 5000)
+
+Run this code after 5 seconds 
+
+setTimeout accepts a function 
+and a number of milliseconds 
+We wrote and passed in a function 
+Anonymous functions look like that then no name 
+Just function 
+After 5000 milliseconds, run that chunk of code 
+
+//example of passing in an a nonymous 
+//function for setTimeout 
+setTimeout(function() {
+  alert('Welcome')
+}, 5000);
+
+Add a button inside the body 
+<button>Don't click me</button>
+<script src="app.js"></script>
+
+const btn = document.querySelector('button')
+btn.addEventListener('click', function(e){
+  alert('Why did you click me')
+})
+//above is an anonymous function getting passed in
+//as a callback 
+
+
+couldve done 
+btn.addEventListener('click', functionName)
+
+Callback is passing a function into another function 
+
+Hoisting 
+Something I need to cover that you shouldn't stress'
+
+var animal = 'dog'
+console.log(animal);
+Prints out dog 
+
+console.log(animal)
+var animal = 'dog'
+Prints out undefined 
+
+When I declared the variable animal 
+
+Javascript is hoisting up var animal first 
+Then it is setting animal to 'dog'
+Javascript is going to see a var declartion and will rn 
+the var declaration, and then will later fill the value with 'dog'
+//example of hoisting in sentence above 
+VARIABLE DECLARATIONS WITH VAR ARE HOISTED
+To avoid problems, always declare an initialize variables before you do 
+Anything with them 
+
+HOWEVER VARIABLE DECLARTIONS WITH LET ARE NOT HOISTED 
+console.log(shrimp)
+let shrimp = 'Shrimp Name'
+//Uncaught ReferenceError: Cannot access 'shrimp' before initialization 
+
+Variable declaratioins with const are not hoisted 
+console.log(shrimp)
+const shrimp = 'Shrimp'
+//Uncaught ReferenceError 
+
+Functions and we write a function declaration 
+Functions are hoisted 
+
+howl()
+function howl(){
+  console.log('hoooowwwwwww')
+}
+//above works 
+Function is put at top of file 
+
+function is put at top of file first 
+Then called howl 
+
+But function declaration does not work 
+hoot()
+var hoot = function(){
+  console.log("hoo")
+}
+Uncaught TypeError: hoort is not a function
+//does not work b/c this is using a function expression 
+//and it is not quite hoisted,
+
+//however, variable does exist
+console.log(hoot)
+var hoot = function(){
+  console.log("hoo")
+}
+//returns undefined 
+//Because variable hoot is hoisted, but the value is not 
+
+console.log(hoot)
+let hoot = function(){
+  console.log("hoo")
+}
+Uncaught Referenceerror: Cannot access 'hoot' before initialization 
+Because I am using let which does not hoist 
+
+let and const exist to remedy unexpected consequences that happen 
+with var 
 
 
 
