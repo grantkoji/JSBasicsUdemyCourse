@@ -1822,5 +1822,275 @@ Because I am using let which does not hoist
 let and const exist to remedy unexpected consequences that happen 
 with var 
 
+Array Callback methods 
+Arrays come with many built-in methods that accept 
+callback functions 
+Now that weve covered callbacks, we can learn these methods 
+Super useful 
 
+.forEach 
+Accepts a callback function 
+Calls the function once per element in the array 
+
+nums.forEach(callbackFunction)
+//function I want to call for each element in nums 
+//will automatically insert the element in callbackFunction
+
+nums.forEach(function(element){
+  console.log(element)
+})
+
+.forEach can take a second parameter if I want to use the index 
+nums.forEach(function(num), index){
+  console.log(index, num)
+}
+
+.map is used to create a new array from an existing array 
+Can duplicate an array or transform an array into a new array 
+
+//accepts a callback function 
+const newArray = array.map(function(t){
+  return t.toUpperCase();
+})
+//generates a new array 
+//if you forget to return the value
+//you will get an array of undefines
+//[undefined, undefined, undefined]
+
+numbers.map(function(n){
+  return {
+    value: n,
+    isEven: n % 2 === 0;
+  }
+})
+
+'asap'.toUpperCase().split('') // ["A", "S", "A", "P"]
+
+const abbrevs = words.map(function(word){
+  return word.toUpperCase().split('').join('.')
+})
+//takes an array of values and makes a new array
+["asap", 'byob'] // ["A.S.A.P.", "B.Y.O.B"]
+
+TAKE AN ARRAY AND JUST RETURN ONE VALUE OF AN OBJECT 
+
+books.map(function(book){
+  return book.title;
+})
+
+When using map, original array is unchanged 
+
+const square = function(x){
+  return x * x;
+}
+
+const square = (x) => {
+  return x * x;
+}
+
+Arrow function behaves just like a function expression but without using the word 
+function 
+
+Arrow functions behave differently around the keyword this 
+
+With arrow functions, parens are optional if there is only one parameter 
+If more than one paremeter, need parens 
+If no parameter, then need empty parens 
+const square = x => {
+  return x * x;
+}
+
+Arrow functions have implicit returns 
+//only works in some scenarios 
+//returning a single expression
+//in scenarios with one expression, can use 
+  ///parentheses instead of curley braces 
+  //can give an expression instead of a returned expression 
+const square = n => (
+  n * n;
+)
+
+can even do on one line 
+const square = n => n * n;
+But put with parens on a new line if its a lot of written things 
+
+//if multiple expressions, then I have to 
+// use curly braces and add a return 
+//Only one expression to return implicityly 
+
+const doubles = nums.map(n => n * 2)
+//or 
+const doubles = nums.map(n => (
+  n * 2;
+))
+
+//Can use terniary operator to make a one liner 
+const parityList = nums.map((n) => (
+  n % 2 === 0 ? 'even': 'odd';
+))
+const parityList = nums.map((n) => n % 2 === 0 ? 'even': 'odd');
+
+.find() returns the value of the first element in the array that satisfies the provided 
+Testing function 
+
+let movie = movies.find(movie => {
+  return movie.includes('Mrs');
+  //has to return true or false 
+  //first time returns true, returns it
+})
+
+const movie = movies.find(movie => (
+  movie.indexOf("Mrs") === 0;
+  //anything that contains Mrs at the beginning 
+))
+
+const goodBook = books.find(b => b.rating >= 4.3);
+const neilBook = books.find(b => (
+  b.authors.includes("Neil")
+))
+
+Filter creates a new array with all elements that pass the 
+test implemented by the provided function. 
+Returns all elements that return true 
+
+const odds = nums.filter(n => n % 2 === 1)
+const fantasyBooks = books.filter(book => (
+  book.genres.includes('fantasy')
+))
+
+const results = books.filter(book => (
+  book.title.toLowerCase().includes(query.toLocaleLowerCase())
+))
+
+const query = "The"
+const results = books.filter(book => {
+  const title = book.title.toLowerCase()
+  return title.includes(query.toLocaleLowerCase())
+})
+
+Every tests whether all elements in the array pass the provided 
+function. It returns a boolean value 
+.every(callback)
+
+words.every(word => word.length === 3)
+
+//every word ends with letter g
+const allEndInG = words.every(word => {
+  const last = word.length - 1;
+  return word[last].toLowerCase() === "g"
+})
+
+.some checks if one element matches 
+Also accepts a callback function and sees if its true or 
+false inside of it
+//some word begins with the letter "d"
+words.some(word => word[0].toLowerCase() === "d")
+
+Every needs all of the elements to return true, some needs 
+one element to return true 
+
+Sort passes in a compare function 
+two parameters a and b 
+
+array.sort(compareFunc(a,b))
+If compareFunc(a, b) returns less than 0 
+  Sort a before b
+If compareFunc(a, b) returns 0
+  Leave a and b unchanged with respect to each other   
+If compareFunc(a, b) returns greater than 0 
+  Sort b before a 
+
+//Positive number  
+//will put highest numbers at END of sort 
+const ascSort = prices.sort((a,b) => a - b);
+
+[400.5, 3000, 99.9]
+
+a 400.5, b 3000 => negative number => 400.5 before 3000
+b 3000, c 99.9 => positive number => 99.9 before 3000
+      
+const desSort = prices.sort(( a, b) => b - a)
+Puts the highest number at the beginning 
+
+NOTE THAT WITH SORT I am changing the array 
+
+To avoid mutating the array, 
+Can either make a copy with variables 
+const prices1 = [1, 2, 3]
+const prices2 = [1, 2, 3]
+
+OR DO 
+
+const ascSort = prices.slice().sort((a, b) => a - b)
+
+Reduce 
+Executes a reducer fnction on each element of the array
+Resulting in a single value 
+
+Could be summing a value or finding the maximum number or tallying votes 
+
+reduce passes in a callback and that callback has to fiollow a 
+specific format 
+
+//sums all numbers in an array 
+array.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+});
+//accumulator starts as the first element in an array 
+//currentValue starts as the second element int he array 
+Accumulator remembers the last sum and then adds to next value 
+
+const product = array.reduce((total, currentVal) => total * currentVal)
+
+const maxGrade = grades.reduce((max, currentVal) => {
+  return max < currentVal ? currentVal : max;
+  // return Math.max(max, currentVal)
+  // if(currentVal > max) return currentVal;
+  //return max;
+})
+
+I can also pass in an initial starting value after our initial callback 
+array.reduce(callback, initialValue)
+array.reduce((accumulator, currentValue) => (
+  accumulator + currentValue
+), 100)
+//when we dont specify the first value, it will just use the first element 
+//as the initial value 
+array.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue
+}, 100)
+//100 is the initial value 
+
+Use reduce to count number of 'y' and 'n' for voting count 
+
+//initial value is an empty object
+const results = votes.reduce(func, {})
+
+const results = votes.reduce((tally, currentVote) => {
+  if (tally[currentVote]){
+    tally[currentVote]++;
+  } else {
+    tally[currentVote] = 1;
+  }
+  return tally;
+}, {})
+
+const votes = ["yes", "yes", "no", "yes", "no", "yes", "abstain", "yes", "yes"]
+
+//easier way to do it 
+
+const results = votes.reduce((tally, currentVote) => {
+  tally[currentVote] = (tally[currentVote] || 0) + 1;
+      //If tally[currentVote] exists, add that, if not start at 0, then add 1
+  return tally;
+}, {})
+
+Want all books with two star review to be in an array 
+All books with 3 star review in an array 
+const booksSortedByReviews = books.reduce((bookObject, currentBook) => {
+  const key = Math.floor(book.rating);
+  if(!bookObject[key]) bookObject[key] = [];
+  bookObject[key].push(currentBook);
+  return bookObject;
+}, {})
 
