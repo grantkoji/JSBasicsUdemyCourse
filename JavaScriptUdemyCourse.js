@@ -2094,3 +2094,276 @@ const booksSortedByReviews = books.reduce((bookObject, currentBook) => {
   return bookObject;
 }, {})
 
+New-ish features 
+Arrow Functions 
+String Template Literals 
+Let and Const 
+For...of 
+For...in
+Exponent Operator 
+String.includes()
+Array.includes()
+Object.values()
+Rest and Spread 
+Destructuring 
+Default Function Params 
+Object Enhancements 
+Classes 
+Async Functions 
+
+Default Function Parameter Values 
+
+The old way 
+function multiply(x, y){
+  if(typeof y === 'undefined'){
+    y = 1;
+  }
+  return x * y;
+}
+
+The new way
+//if no y is passed in, if its undefined, y = 1 
+function multiply(x, y = 1){
+  return x * y;
+}
+
+//could even make y =[1,2,3]
+
+const greet = (person, greeting = 'hi', punctioation = '!') => {
+  console.log(`${greeting}, ${person}${punctuation}`)
+}
+
+Default parameters generally come at the end 
+
+Spread 
+Spread syntax allows an iterable such as an array to be 
+expanded in places where zero or more arguments 
+(for function calls) or elements (for array literals) are 
+expected, or an object expression to be expanded in palces where zero 
+or more key-value pairs (for object literals) are expected 
+
+Spread is expanding an iterable (array, string, etc.)
+into a list  of arguments instead of passing in a single argument 
+
+Math.max(45, 23, 34)
+Or could use spread operator with 
+const nums = [45, 23, 34]
+Math.max(...nums)
+
+function giveMeFour(a, b, c, d){
+  console.log(a, b, c, d)
+}
+
+const colors = ['red', 'orange', 'yellow', 'green']
+If I use the spread operator, it passes each element as an argument 
+giveMeFour(colors) // undefined, undefined, undefined, undefined 
+
+giveMeFour(...colors) //red orange yellow green
+
+const str = 'GOAT'
+giveMeFour(...str) // G O A T 
+      //same as giveMeFour('G','O','A','T')
+Each value is passed as its own argument with the 
+spread operator 
+
+First use case of spread operator:
+Each element is passed in as its own separate operator 
+
+Second use case of spread operator: 
+  Spread: In Array Literals 
+  Create a new array using an existing array 
+  Spreads the elements from one array into a new array 
+
+const cephalopods = ['dumbo octopus', 'humboldt squid']
+
+Can use to combine arrays
+
+const combined = [newElement1, ...array1, ...array2, newLastElement]
+
+Can combine 3 arrays as well 
+
+Using spread operator makes a clone, new array with a new reference 
+
+const copy = original 
+copy === original //true 
+const copySpread = ...original 
+copySpread === original //false 
+
+"abcd".split('') //['a','b','c','d']
+[...'abcd'] //['a','b','c','d']
+
+[...'abc', ...'def', "Hello!"] // ['a','b','c','d', 'e', 'f', 'Hello!']
+
+Spread in Object Literal 
+Used to make copies of objects or combine objects 
+const feline = { legs: 4, family: 'Felidae'}
+const canine = { family: "Caninae", furry: true}
+
+const dog = {
+  ...canine,
+  isPet: true,
+  adorable: true 
+}
+
+const cat = {
+  ...feline, 
+  isGrumpy: true,
+  personality: "unpredictable"
+}
+
+const catDog = {
+  ...canine,
+  ...feline
+}
+ catDog // {legs:4, family: "Felidae", furry: true}
+ORDER MATTERS 
+CAN OVERWRITE PROPERTIES WITH SAME KEY NAME 
+
+const tripod = {
+  ...feline,
+  legs: 3
+}
+//legs: 3, family: "Felidae"
+
+const catDogClone = {
+  ...catDog 
+}
+
+CAN ONLY SPREAD AN OBJECT INTO ANOTHER OBJECT 
+If I try to spread an object inside an array 
+[...catDog]
+Get Uncaught TypeError: object is not iterable 
+
+BUT I CAN SPREAD AN ARRAY INTO AN OBJECT 
+WILL CREATE KEY VALUE PAIRS WITH INDICES AS KEYS 
+
+{...[4,5,6]} //{0: 4, 1: 5, 2: 6}
+[...'hello', {...catDog}]
+//
+0: 'h',
+1: 'e',
+2: 'l',
+3: 'l',
+4: 'o',
+5: 
+family: "Felidae"
+furry: truelegs: 4
+
+Way spread works inside object is different than in an array 
+...'hello' is inside an array 
+{...catDog} is in an object 
+
+Math.min(...[3, 4, 5, 6])
+//use spread for a bunch of values into separate arguments
+
+Can use spread to add arrays 
+  copy data from one array to another 
+  Or add arrays 
+
+Can use spread in object literals
+  To copy from one object to another object
+  Can add new properties in 
+  Can overwrite previous property values 
+    Whatever is last is the value so order matters 
+
+Rest Parameters (new)
+
+//lets say we want to add in more and more parameters 
+
+function sum(){
+
+}
+
+Without REST 
+Canuse the arguments ObjectNot an array 
+Available inside every function 
+Its an array like object 
+Has a length property
+Does not have array methods like push/pop
+Contains all the arguments passed to teh funvtion 
+Not available insde of arrow functions 
+
+function sumAll(){
+  let total = 0;
+  for (let i = 0; i < arguments.length; i++){
+    total += arguments[i];
+  }
+  return total;
+}
+
+sumAll(3, 4, 5) // 12
+arguments has elements 
+0: 3, 
+1: 4, 
+2: 5
+
+Cannot use .reduce() on arguments b/c its not an array 
+Could use spread operator to turn it into an array 
+function sum(){
+  const argsArr = [...arguments]
+  return argsArr.reduce((total, currVal) =>{
+    return total + currVal
+  })
+}
+
+function fullName(first, last){
+  console.log(arguments)
+}
+Whatever I enter inside will enter the entire list of arguments 
+//instead of just first and last
+
+ALSO arguments does not exist in arrow functions 
+
+REST is new nicer syntax 
+Rest is ... but we instead put it in a parameters 
+... 
+Rest Params 
+Collects all remaining arguments into an actual array 
+
+function sum(...nameArray){
+  console.log(nameArray)
+}
+sum(4,5,6,7) // [4,5,6,7]
+
+function sum(...nums){
+  return nums.reduce((total, currVal) =>{
+    return total + currVal;
+  })
+}
+
+CAn use ... REST to also collect all remaining arguments that does not match 
+
+
+function fullName(first, last, ...titles){
+  console.log('first', first)
+  console.log('last', last)
+  console.log('titles', titles)
+}
+
+fullName('tom', 'jones', 'III', 'order of the phoenix')
+//
+first tom 
+last jones 
+titles 
+["III", "order of the phoenix"]
+///put everything after it into the titles array 
+
+const multiply = (...nums) => (
+  nums.reduce((total, currentVal) => total +currentVal)
+)
+//can tell it to only take in remaining arguments after certain set...hence name rwest 
+REST IS OPPOSITE OF SPREAD b/c collecting elements into an array 
+   REST is taking individual elements and collecting it into an array 
+   INSTEAD OF COPYING ELEMENTS OVER OR TAKING AND COPYING ONE ELEMENT AT A TIME
+REST has properties of array 
+REST can use array functions 
+
+REST TURNS INTO AN ARRAY 
+SPREAD TAKES FROM ARRAY AND SPREADS INTO INDIVIDUAL ELEMENTS
+
+
+kdjf
+
+
+
+
