@@ -1491,5 +1491,203 @@ function getCard(){
   return { value: pick(values), suit: pick(suits)}
 }
 
+Scope is variable "visibility"
+The location where a variable is defined dictages where we have access to that variable 
+
+There are multiple pieces and different ways scope
+Function Scope...when we define a variable in a function, the variable 
+is scoped to the function 
+
+var i = 10;
+for (var i = 0; i < arr.length; i++){
+
+}
+//we are redeclaring i as value = 0
+//whereas if we use let, it will stay coped to its block 
+
+//let and const cannot be redeclared 
+//var can be redeclared 
+
+//let and const are block scoped
+//var is not block scoped 
+
+Lexical Scope
+When we have nested functions 
+Nested functions are lexically BeforeUnloadEvent, they are bound to their 
+one way relationship with one function ins ide of another 
+
+function nameOfFuncion(){
+
+}
+
+Different syntax is a 
+Function XPathExpression, another way to define a function 
+
+const square = function(num){
+  return num * num; 
+}
+square(7);
+
+Functions are objects 
+Means we can put them in a variable 
+Means we can pass them as arguments 
+So putting a function in a variable 
+
+function does not have a name 
+But it's stored in a variable '
+function add(x, y){
+  return x + y
+}
+
+const add = function(x, y){
+  return x + y
+}
+
+//if you just did 
+function(x, y){
+  return x + y
+}
+Above is called an anonymous function which we cannot call  
+
+There ais difference in ways functions are called if built with a variable 
+B/c of hoisting 
+
+//anonymous function expression
+const sum = function(x, y){
+  return x + y;
+}
+
+//named function expression 
+const product = function multiply(x,y){
+  return x * y;
+}
+
+If we try to call multiply, 3 and 5 will lead to an uncaught reference 
+
+Function expression that we store in a varaible 
+Passing around functions to other functions 
+Theres a lot we can do because functions are objects 
+
+Functions are objects 
+
+function add(x, y){
+  return x + y;
+}
+
+const subtract = function(x, y){
+  return x - y;
+}
+
+function mulitply(x, y){
+  return x - y;
+}
+
+const divide = function (x, y){
+  return x / y;
+}
+
+const operations = [add, subtract, multiply, divide]
+//put functions inside an array 
+
+operations[1](5, 2) #=> 3
+operations[2](3, 6) #=> 18 
+We can do things like loop over this array and call this function 
+So I don't have to hard code it '
+
+const thing = {
+  doSomething: multiply 
+}
+
+thing.doSomething(2, 5) #=> 10 
+
+FUNCTIONS ARE SIMPLY VALUES IN JAVASCRIPT,
+Can store them in variables or arrays 
+Can also put a function in an object 
+
+Passing functions as an argument in another function 
+
+Higher Order Functions 
+Functions that operate on/with other functions.
+They can: 
+Accept other functions as arguments
+Return a function 
+
+Functions as Arguments 
+
+function callTwice(func){
+  func();
+  func();
+}
+
+//Takes in a function and number and loops over the number to run the function 
+function repeatNTimes(action, num){
+  for (let i = 0; i < num; i++){
+    action()
+  }
+}
+
+//accepts two functions and randomly picks which one to call 
+function pickOne(f1, f2){
+  let rand = Math.random()
+  if(rand < 0.5){
+    f1()
+  } else{
+    f2()
+  }
+}
+
+Above are examples of functions called accepting functions as arguements 
+
+const triple = multiplyBy(3);
+triple(5);
+const double = multiplyBy(2);
+
+double(8) //16
+
+function multiplyBy(num){
+  return function(x){
+    return x * num;
+  }
+}
+
+multiplyBy(5) #=> function(x){
+    return x * 5;
+}
+
+const triple = multiplyBy(3)
+triple => 
+f(x) {
+  return 3 * num;
+}
+
+triple(5) #=> 15 
+
+Functions are just values that can be passed around whether as an argument or 
+as a return value 
+Above is example of Function as Return value 
+Able to do it b/c of lexical scope 
+which always keeps num at whatever I pass into multiplyBy(num)
+
+const isChild = makeBetweenFunc(0, 18);
+isChild(5); True 
+isChild(67); False 
+
+function makeBetweenFunc(x, y){
+  return function(num){
+    return (num >= x && num <= y)
+  }
+}
+//  const isChild = function(num){ 
+//    return num >= 0 && num <= 18
+//  }
+
+const isChild = makeBetweenFunc(0, 18);
+isChild(3) #=> true 
+isChild(92) #=> false 
+
+const isInNineties = makeBetweenFunc(1990, 1999);
+const isNiceWeather = makeBetweenFunc(60, 79);
+
+
 
 
