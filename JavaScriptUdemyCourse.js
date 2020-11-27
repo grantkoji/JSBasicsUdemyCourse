@@ -2037,7 +2037,29 @@ array.reduce((accumulator, currentValue) => {
   return accumulator + currentValue;
 });
 //accumulator starts as the first element in an array 
-//currentValue starts as the second element int he array 
+//currentValue starts as the second element in the array 
+
+let numberArray = [1, 2, 3, 4]
+
+//sums all numbers in an array 
+const sum = numberArray.reduce(function(accumulator, currentValue) {
+  return accumulator + currentValue;
+});
+//accumulator starts as the first element in an array, 1. 
+//currentValue starts as the second element in the array, 2. 
+
+sum //#=> 10
+
+//sums 10 plus all numbers in an array
+const sumPlusTen = numberArray.reduce(function(accumulator, currentValue) {
+  return accumulator + currentValue;
+}, 10);
+//accumulator starts as the initial value, 10. 
+//currentValue starts as the first element in the array, 1. 
+
+sumPlusTen //#=> 20
+
+
 Accumulator remembers the last sum and then adds to next value 
 
 const product = array.reduce((total, currentVal) => total * currentVal)
@@ -2047,7 +2069,47 @@ const maxGrade = grades.reduce((max, currentVal) => {
   // return Math.max(max, currentVal)
   // if(currentVal > max) return currentVal;
   //return max;
+});
+
+
+let arrayNumbers = [100, 5, 70, 350, 47]
+
+//find the maximum value in an array of numbers
+const maxValue = arrayNumbers.reduce(function(maxThusFar, currentVal){
+  // maxThusFar is the accumulator. currentVal is the currentValue.
+  if(currentVal > maxThusFar){
+    return currentVal;
+  } else {
+    return maxThusFar;
+  }
 })
+
+maxValue //#=> 350
+
+
+
+let arrayNumbers = [100, 5, 70, 350, 47]
+
+//find the maximum value in an array of numbers 
+const maxValueWithTerniary = arrayNumbers.reduce(function(maxThusFar, currentVal){
+  // use the terniary operator inside the callback
+  return maxThusFar > currentVal ? maxThusFar : currentVal;
+})
+
+//find the maximum value in an array of numbers
+const maxValueWithMathMax = arrayNumbers.reduce(function(maxThusFar, currentVal){
+  // use Math.max() inside the callback
+  return Math.max(maxThusFar, currentVal);
+})
+
+maxValueWithTerniary //#=> 350
+maxValueWithMathMax //#=> 350
+
+
+
+Note, there are other ways we could have written the if/else statement inside the callback function 
+1) the terniary operator: return maxThusFar > currentVal ? maxThusFar : currentVal;
+2) return Math.max(maxThusFar, currentVal);
 
 I can also pass in an initial starting value after our initial callback 
 array.reduce(callback, initialValue)
@@ -2066,24 +2128,48 @@ Use reduce to count number of 'y' and 'n' for voting count
 //initial value is an empty object
 const results = votes.reduce(func, {})
 
-const results = votes.reduce((tally, currentVote) => {
+
+const votes = ["yes", "yes", "no", "yes", "no", "yes", "abstain", "yes", "yes"]
+
+//return the number of yes, no, and abstain votes.
+const results = votes.reduce(function(tally, currentVote){
+  //tally is the accumulator. currentVote is the currentValue.
   if (tally[currentVote]){
+    //if tally[currentVote] exists, add 1 to that total. 
     tally[currentVote]++;
   } else {
+    //if tally[currentVote] does not exist, create it as a key pointing to a value of 1
     tally[currentVote] = 1;
   }
   return tally;
-}, {})
+}, {});
+//initialValue is an empty object, {}.
+
+results //=> { yes: 6, no: 2, abstain: 1}
+
+
+
+
+
+
+
+
+
+
 
 const votes = ["yes", "yes", "no", "yes", "no", "yes", "abstain", "yes", "yes"]
 
 //easier way to do it 
-
 const results = votes.reduce((tally, currentVote) => {
   tally[currentVote] = (tally[currentVote] || 0) + 1;
       //If tally[currentVote] exists, add that, if not start at 0, then add 1
   return tally;
-}, {})
+}, {});
+
+results //=> { yes: 6, no: 2, abstain: 1}
+
+
+
 
 Want all books with two star review to be in an array 
 All books with 3 star review in an array 
