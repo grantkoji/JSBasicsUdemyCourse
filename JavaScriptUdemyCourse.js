@@ -2447,6 +2447,12 @@ REST can use array functions
 REST TURNS INTO AN ARRAY 
 SPREAD TAKES FROM ARRAY AND SPREADS INTO INDIVIDUAL ELEMENTS
 
+Goals:
+Get started every day. 
+One chapter in each coursee, any more is overload. 
+Switch it around. from course to course. 
+Start building the program. 
+That is the priority. 
 
 kdjf
 
