@@ -2454,6 +2454,84 @@ Switch it around. from course to course.
 Start building the program. 
 That is the priority. 
 
+const raceResults = [
+  'name1',
+  'name2',
+  'name3'
+]
+
+const [gold, silver, bronze] = raceResults
+
+gold //'name1'
+silver//'name2'
+
+const [first, , third] = raceResults
+first //'name1'
+third //'name3'
+
+Use ... to put the rest of the array into a vrariable 
+const [winner, ...others] = raceResults 
+winner //'name1'
+other //['name2', 'name3']
+
+Destructuring arrays shown above 
+Set variable set to whatever array you want to unpack 
+Can use commas to skip elements
+
+Destructuring an object shown below 
+const runner = {
+  first: 'Eliud',
+  last: "Kipchoge",
+  country: "Kenya",
+  title: "Elder of the  Order"
+}
+
+const {first, last, time} = runner 
+first // "Eliud"
+last //"Kipchoge"
+time // undefined 
+
+const { country: nation, title: honorific} = runner
+Will make a variable nation based on the country key  
+country // "Kenya"
+honorific //Uncaught reference error 
+
+//Instead of using position, using property name 
+//to unpack the rest of the object 
+const {first, last, ...others} = runner
+first //Eliud
+other // {country: "Kenya", title: "Elder of the Ordre"}
+
+
+const results = [{
+  first: "Eliud",
+  last: "Kipchoge", 
+  country: "Kenya"
+},
+{
+first: "First",
+last: "Second", 
+country: "Place"
+},
+{
+  first: "Joe",
+  last: "Smith",
+  country: "USA"
+}
+]
+
+const [,{country}] = results 
+country // "Place"
+//would be second object b/c of comma skipping first element 
+
+const [{first: goldWinner}, {country}] = results
+//Gets first name but changes variable name to goldWinner 
+//country is still "Place"
+
+Cleaner way is 
+const [,silverMedal] = results
+const {country} = silverMedal
+country//"Place"
 kdjf
 
 
