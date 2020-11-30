@@ -2532,6 +2532,164 @@ Cleaner way is
 const [,silverMedal] = results
 const {country} = silverMedal
 country//"Place"
+
+
+Destructuring parameters below: 
+
+const person = {
+  first: "Eliud",
+  last: "Kipchoge", 
+  country: "Kenya"
+}
+
+function print(person){
+  const {
+    first, 
+    last, 
+    title
+  } = person;
+  console.log(`${first} ${last} ${title}`)
+}
+
+print(runner) // "Eliud Kipchoge Kenya"
+
+function print({
+    first, 
+    last, 
+    title
+  }) {
+  console.log(`${first} ${last} ${title}`)
+}
+
+print(runner) // "Eliud Kipchoge Kenya"
+
+const response = [
+  "HTTP/1.1",
+  "200 OK",
+  "application/json"
+]
+
+function parseResponse([protocal, statusCode, contentType]){
+  console.log(`${protocal} ${statusCode} ${contentType}`)
+}
+
+parseResponse(response) // " HTTP/1.1 200 OK application/json"
+
+Shorthand properties 
+NEW TO JS with ES 2015. not used in internet explorer 
+
+Key name is name of variable, value is 
+
+const getStats = (arr) => {
+  const max = Math.max(...arr)
+  const min = Math.min(...arr)
+  const sum = arr.reduce((sum, r)=>sum + r)
+  const avg = sum / arr.length
+  return {
+    max: max, 
+    min: min,
+    sum: sum,
+    avg: avg
+  }
+}
+
+//could also do:
+const getStats = (arr) => {
+  const max = Math.max(...arr)
+  const min = Math.min(...arr)
+  const sum = arr.reduce((sum, r)=>sum + r)
+  const avg = sum / arr.length
+  //can just put in one word to represent both key and value 
+  //due to Shorthand property of object available via destructuring . 
+  return {
+    max, 
+    min,
+    sum,
+    avg
+  }
+}
+
+computed properties 
+
+const role = 'host';
+const person = 'Jools Holland'
+const role2 = "Director"
+const person2 = "James Cameron"
+
+const team = {};
+team[role] = person 
+
+team #=> {host: "jools Holland"}
+
+const team = {
+  [role]: person,
+  [role2]: person2
+}
+
+team #=> {host: "Jooles Holland", Director: "James Cameron"}
+Computed Properties 
+We can use a vvariable as a key name in an objwect literal property 
+
+const user = "Jools"
+const userRoles = {
+  [user]: "Admin"
+}
+
+userRoles; //{Jools: "Admin"}
+
+const team = {
+  [1 + 6 + 9]: "sixteen"
+}
+
+function addProp(obj, k, v){
+  const copy = {
+    ...obj
+  }
+  copy[k] = v;
+  return copy
+}
+Above not using computed properties 
+Using computed properties 
+const addProp = (obj, k, v){
+  return {
+    ...obj, 
+    [k]: v
+  }
+}
+
+//If I have an arrow function with an object being returned  
+//implicitly, remember to put it in parenthesis
+
+const add = function(x,y){
+  return x + y;
+}
+
+"hello".toUpperCase()
+"HELLO"
+
+const math = {
+  add
+}
+
+math // {add: f}
+math.add(2, 3) #=> 5
+
+//other way to do it is 
+const math = {
+  numbers: [1, 2, 3, 4, 5],
+  add: function(x,y){
+    return x + y
+  },
+  multiply: function(x, y){
+    return x * y;
+  }
+}
+
+Definition of METHOD: 
+//we call a function a method when: 
+//we add a function as a property inside an object
+
+
 kdjf
 
 
