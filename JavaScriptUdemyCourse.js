@@ -2870,6 +2870,149 @@ Value of this is not based on stone where you write it.
 It is dependant upon where it is invoked 
 Way you actually invokie it does matter 
 
+const annoyer = {
+  phrases: ["literally", "essentially", "I can't even"] 
+  setInterval(func, 3000)
+  pickPhrase(){
+    const {phrases} = this
+    const idx = Math.floor(Math.random() * phrases.length);
+    return phrases[idx]
+  }
+  //
+  // start(){
+    //console.log(this.pickPhrase())
+      //works
+  //   setInterval(function(){
+  //     console.log(this)
+  //     console.log(this.pickPhrase())
+          //error this.pickPhrase() is not a function
+          //because this refers to the Window
+          //this is being set by setinterval 
+              //thus this is in the window object
+              //   } , 3000)
+  // }
+
+  //past solution 
+  start(){
+    const that = this;
+    //also would use bind here
+    setInterval(function(){
+      console.log(that)
+    } , 3000)
+  }
+
+  But now with arrow functions, we can avoid problem entirel
+  arrow functions dont get their own this  
+  In arrow function this wont change from its parent or 
+  its nearest this 
+  If not using an arrow function get a new this 
+  If turn into an arrow function, this is the same as parent
+  arrow functions do not get their own this
+  start(){
+    //cant use 
+    // const timerId = setInterval...
+    // Because would not have access to timerId in stop()
+    this.timerId = setInterval(( => {
+      console.log(this.pickPhrase())
+    }, 3000))
+  }
+  //Using arrow function is great for keeping this the same as 
+  //its more global scope
+  //Arrow functions suck if Im just writing start as a reegular 
+  //arrow function expression 
+
+  stop(){
+    clearInterval(this.timerId)
+    console.log("PHEW THANK HEAVENS THAT IS OVER!")
+  }
+}
+
+annoyer.pickPhrase() //returns a random phrase form the list 
+
+
+
+annoyer.start()
+annoyer.stop()
+
+
+setInterval comes in our brower for free 
+setInterval(func, 3000)
+  Whatever function we put in there runs for 3 seconds
+)
+Coding out a deck of cards 
+
+
+function makeDeck(){
+  const deck = []
+  const suits = ["hearts", "diamonds", "spades", "clubs"]
+  const values = "2,3,4,5,6,7,8,9,10,J,Q,K,A"
+  for (let value of values.split(',')){
+    for (let suit of suits) {
+      deck.push({
+        value,
+        suit
+      })
+    }
+  }
+  return deck
+}
+
+function drawCard(deck) {
+  return deck.pop()
+}
+
+const myDeck = {
+  deck: [],
+  drawnCards: [],
+  const suits: ["hearts", "diamonds", "spades", "clubs"],
+  const values: "2,3,4,5,6,7,8,9,10,J,Q,K,A",
+  initializeDeck(){
+    const{suits, values, deck} = this 
+    for (let value of values.split(',')){
+      for (let suit of suits) {
+        deck.push({
+          value,
+          suit
+        })
+      }
+    }
+  },
+  drawCard(){
+    const card = this.deck.pop()
+    this.drawnCards.push(card)
+    return card;
+  },
+  drawMultiple(numCards){
+    const cards = []
+    for(let i=0; i<numCards;i++){
+      cards.push(this.drawCard())
+    }
+    return cards;
+  },
+  //fisher yates shuffl
+  shuffle(){
+    const {
+      deck
+    } = this;
+    //loop over array backwaryds
+    for(let i = deck.length - 1; i > 0; i--){
+      let j = Math.floor(Math.random() * (i+1))
+      [arr[i], arr[j]] = [arr[j], arr[i]]
+      //destructuring to make them swap elements in place 
+
+    }
+  }
+
+}
+
+
+const card1 = myDeck.drawCard()
+for(let i = arr.length - 1; i > 0; i--){
+  let j = Math.floor(Math.random() * (i+1))
+  [deck[i], deck[j]] = [deck[j], deck[i]]
+  //destructuring to make them swap elements in place 
+
+}
 
 kdjf
 
