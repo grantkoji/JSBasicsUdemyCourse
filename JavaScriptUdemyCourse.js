@@ -3014,6 +3014,201 @@ for(let i = arr.length - 1; i > 0; i--){
 
 }
 
+Using objects is a great way to combine things iwth actions 
+Can start writing functions in a clean way where everything 
+is done by the function itself 
+
+Creating a deck factory to create multiple decks 
+
+const deck1 = makeDeck()
+const deck2 = makeDeck()
+deck2.initializeDeck()
+
+//this is not the best way to make multiple decks 
+//but its the best way to make mulitple decks with what we have now 
+
+Dont need JS to make a form 
+But not getting interactive element without the behavior 
+
+content all HTMLed out but add JS in, do something when I click . 
+
+Just very active clicking on things 
+is all JS. Cards themselves is HTML/CSS
+
+
+Class names 
+.special {
+  color: TextTrackList;
+}
+#bear-photos{
+
+}
+input[type="password"]{
+
+}
+h1 {
+
+}
+
+DOM is our portal into the world of the web age 
+
+DOM is a javascript represenation of a webpage 
+Its your js "window" into the contensts of a webpage
+Its just a bunch of objects tht you can interact with via JS
+
+Document
+Object
+Model 
+
+Browser is going to turn it into a bunch of Javascript Objects 
+It is a virtual representation of the content on the page 
+HTML and CSS go in.... JS Objects Come out
+
+Document 
+Body 
+H1...creates and Object and those objects have a buch of differnte properties 
+
+console.dir is for regular javascript Objects
+
+DOM is making h1 a regular javascript object 
+
+Have attributes like hidden and false 
+
+Everything we see on page is related to its own JS object .
+
+javascript changing in Javascript 
+()
+myImg.src = "website"
+myImg.style.width = '200px'
+document.body.append(myImg)
+
+myImg.style.transform = "translate(300px,200px)"
+
+
+
+myImg.src = "website"
+myImg.style.width = '200px'
+document.body.append(myImg)
+//change transition proprety to make it smooother when it moves 
+myImg.style.transition = "all 2s";
+
+//make it move every 2 seconds
+setInterval(() => {
+  const x = Math.floor(document.body.clientWidth * Math.random())
+  const y = Math.floor(document.body.clientHeight * Math.random())
+  myImg.style.transform = `translate(${x}px, ${y}px)`
+}, 2000)
+
+Could also do
+
+
+
+myImg.src = "website"
+myImg.style.width = '200px'
+document.body.append(myImg)
+//change transition proprety to make it smooother when it moves 
+myImg.style.transition = "all 2s";
+
+//make everything move around 
+const allEls = document.body.children 
+
+//create a new style sheet
+const sheet = newCSSStyleSheet;
+sheet.replaceSync(`* {transition: all 2s}`)
+document.adoptedStyleSheets = [sheet];
+
+//make it move every 2 seconds
+setInterval(() => {
+  for(let el of allElls){
+    //make everything rotate around 
+    const rotation = Math.floor(Math.random() * 360);
+    const x = Math.floor(document.body.clientWidth * Math.random())
+    const y = Math.floor(document.body.clientHeight * Math.random())
+    el.style.transform = `translate(${x}px, ${y}px rotate(${rotation}deg))`
+  }
+  
+}, 2000)
+
+Document 
+The document object is our entry point into the world of the dom 
+It contains represenations of all the content on a page, plus 
+tons of useful methods and properties 
+
+document has a URL assigned to it 
+All other pieces of DOM are nested inside the document 
+document.body.children 
+
+Document is entry point to access DOM, view content in DOM 
+Document used to add events add other things 
+
+Select 
+Manipulate 
+Add new forms and buttons 
+
+If multiple IDs of the same name on the page, will 
+get back the first matching ID 
+
+document.getElementById('somethingnotthere')
+if the ID does not exist, we will get null 
+
+Object is an HTML paragraph element type 
+for paragraphs 
+
+img 
+The type is an HTML image element 
+
+There are different categories of type on the page 
+Every image element has a source, a paragraphs does not 
+()
+document.getElementById 
+return one element represented by object 
+If no match, we get null 
+
+const inputs = document.getElementsByTagName('string')
+Cant use pop/push/includes/indexOf
+But can check for indices 
+()
+inputs[1]
+If input is not there, return undefined 
+
+Very lightweight structure that stores structures 
+
+To turn into an array, can just use the 
+spread operator to spread it into an array 
+const arr = [...inputs]
+Now arr is an actual array of those inputs 
+
+document.getElementsByTagName('something doesnt exist')
+  //HTMLCollection() []
+  //Not return null 
+
+document.getElementsByClassName('special')
+  //Same thing as tag name, return an HTML Collection 
+
+
+querySelector 
+A newer, all-in-one method to select a single element 
+
+console.dir(main)
+//gives us an HTML object 
+
+document.querySelector('li.special')
+Gives us the first li with class name special 
+
+document.querySelector('ul li.special')
+document.querySelector('section ul li.special')
+document.querySelector('body section ul li.special')
+
+document.querySelector('input[type=password]')
+
+document.querySelectorAll('li')
+  //returns a Node List 
+  //Node list is another type of collection 
+  //Node list contains, still an HTML contained element 
+  //Another array like object, just in a different 
+  //container than HTML Collection 
+
+  
 kdjf
 
 
