@@ -2689,6 +2689,187 @@ Definition of METHOD:
 //we call a function a method when: 
 //we add a function as a property inside an object
 
+Method 
+//Don't have to use
+
+Function name is used to put in for key
+
+const auth = {
+  login(){
+    console.log("Logged you in!")
+  }
+}
+auth // 
+{ login: f login()}
+//so login is automatically the key for thte function named 
+//For the property that I am adding to auth
+//Still need to 
+THIS IS A NICE SHORT HAND THAT IS NEW TO JS
+WE ADD PROPERTIES TO AN OBJECT WITHOUT HAVING TO WRITE 
+login: function(){
+
+}
+
+This 
+The keyword this can be a major point of confusion and misery and hardship 
+and general suffering in the life of a new JS developer. 
+
+This is a concept that can be a major point of confusion and hardship 
+for a new JS developer 
+
+What is tricky is value sometimes seems unpredictable
+
+this is a reference to the current reference scope
+
+function sayHi(){
+  console.log("Hi");
+  console.log(this);
+}
+
+sayHi() // prints Hi and reference to Window 
+
+Window is global scope 
+this is referring to how it is called 
+
+Could all alert("LOL")
+Or window.alert("LOL")
+
+var color = "teal"
+window 
+//color is added to the window 
+
+let num = 400;
+
+window.num //undefined
+
+Var declared variables are added to window 
+Let declared variables are not added to window 
+
+
+In a function, this is going to refer to a window.
+Except when it doesnt 
+This is referring to object in its current executed scope 
+
+const person = {
+  first: "Cherilyn",
+  last: "Sardines", 
+  nickName: "Singer",
+  fullName() {
+    console.log(this)
+  }
+}
+
+person.fullName()
+//
+  {
+    first: "Cherilyn",
+    last: "Sardines", 
+    nickName: "Singer"
+  }
+
+this is returning current object 
+Could also go with this.first to pull up first name only 
+I can console.log(`${this.first} ${this.last}`)
+this refers to the object 
+
+const person = {
+  first: "Cherilyn",
+  last: "Sardines", 
+  nickName: "Singer",
+  //with destructuging
+  fullName() {
+    const {
+      first,
+      last,
+      nickName
+    } = this
+    console.log(`${first} ${last} known for ${nickName}`)
+  }
+  printBio(){
+    const fullName = this.fullName()
+    console.log(`${fullName} is a person`)
+  }
+}
+
+person.printBio() //Cherilyn Sardines known for Singer is a person
+
+Sometimes this is used depending on the invocation context of the 
+function it is used in
+It means, the value will change depending on how the function 
+is executed 
+
+The way I'm actually executing this in the function'
+
+const person = {
+  first: "Cherilyn",
+  last: "Sardines", 
+  nickName: "Singer",
+  //with destructuging
+  fullName() {
+    const {
+      first,
+      last,
+      nickName
+    } = this
+    console.log(`${first} ${last} known for ${nickName}`)
+  }
+  printBio(){
+    const fullName = this.fullName()
+    console.log(`${fullName} is a person`)
+  }
+}
+
+const printBio = person.printBio; 
+
+printBio() 
+//Uncaught TypeError this.fullName is not a function
+//this is referring to the window right now 
+
+person.printBio() 
+//Works, it is referring this
+//this is referring to this inside person
+
+The value of this depends on the invocation context  the 
+function it is used in 
+
+const person = {
+  first: "Cherilyn",
+  last: "Sardines", 
+  nickName: "Singer",
+  //with destructuging
+  fullName() {
+    const {
+      first,
+      last,
+      nickName
+    } = this
+    console.log(`${first} ${last} known for ${nickName}`)
+  }
+  printBio(){
+    const fullName = this.fullName()
+    console.log(`${fullName} is a person`)
+  }, 
+  laugh: ()=> {
+    console.log(this);
+    console.log(`${this.nickName} says Hahahah`)
+  }
+}
+
+person.laugh()
+//Window 
+Value of this is set to the window instead of being set to the 
+person object because an arrow function does not behave that way 
+An arrow function is a reference to a global scope, to the window 
+This is why we dont use arrow function as methods inside an object 
+Because we want to use functions to refer to the object
+it is inside. We can run into issues unless we use .bind()
+
+Arrow functions do not get their own version of this
+
+Value of this is not based on stone where you write it. 
+It is dependant upon where it is invoked 
+Way you actually invokie it does matter 
+
 
 kdjf
 
