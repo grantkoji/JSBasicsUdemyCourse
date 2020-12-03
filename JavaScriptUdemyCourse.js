@@ -3208,6 +3208,7 @@ document.querySelectorAll('li')
   //Another array like object, just in a different 
   //container than HTML Collection 
 
+  Jump from course to course
   
 kdjf
 
