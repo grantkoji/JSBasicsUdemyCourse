@@ -3214,4 +3214,234 @@ kdjf
 
 
 
+class Node {
+  constructor(val, priority){
+    this.val = val 
+    this.priority = priority
+  }
+}
+
+
+Innner text is aware of what is showing up on the page 
+
+textContent gives us the inner text of that emlement from that file 
+Takes all that 
+
+innerText is just the text that ExtensionScriptApis
+textContent gets everything from the 
+if you had 
+<script>console.log("something")</script>
+
+innerText is aware of what is actually showing up on he page 
+textContent includes everything, doesn't care at all' gives us everything insdie that 
+element from that HTML
+He almost always uses innerText
+textContent is faster, but tiny difference 
+
+innerText does nto give you the tags 
+innerHTML does give you the tags
+
+List of important properties 
+
+classList
+getAttribute()
+setAttribute()
+appendChild()
+append()
+prepend()
+removeChild()
+remove()
+createElement
+innerText
+textContent 
+innerHTML
+value 
+parentElement 
+children 
+nextSibling 
+previousSibling 
+style 
+
+const inputs = document.querySelectorAll('input')
+inputs[0].value => "Taco"...returns value in the input of the form 
+can do 
+inputs[0].value += "the bear"
+//to add the bar to the input value that exists already 
+
+inputs[2].checked
+//true or false 
+checked state of a check box ()
+
+// inputs
+// inputdafd
+// daf
+// <form action="">
+// <input type="password" placeholder="type password">
+//   <input type="checkbox">
+//   <input type="range" min="100" max="500" step="300">
+//     //can be used to create a range that you put in 
+//     <input type="submit">
+// <form></form>
+
+{/* //add an anchor tag in  */}
+{/* <a href="cats.com/cute">Cats are adorable sometimes</a> */}
+
+{/* document.querySelector('a').href #=> returns the web link  */}
+()
+
+{/* alt is an attribute, src is an attribute 
+for(){} */}
+
+There exist some attributes that you cannot enter in 
+
+range.value 
+src on image. href on anchor tag. 
+
+range.getAttribute('max')
+
+range.setAttribute('min', '-500')
+range.setAttribute('type', 'radio')
+
+.parentElement #=> ul 
+ul.children #=> HTML Collection 
+firstLi.nextElementSibling 
+secondLi.previousElementSibling 
+
+Can find children and parents 
+
+li.innerHTML = "We are <b>The Champions</b>"
+Puts The Champions in bold 
+
+//we don't usually add inline styles 
+{/* <h1 style="color: teal;">
+h1.style.color = "blue"
+p.style.background-color 
+  //does not work, swyntax error why all the style properties 
+  in JavaScript are camelCase 
+p.style.backgroundColor = "black"
+
+p.style 
+If you look at it every single style is camel cased  */}
+
+p.style.fontSize = "40px"
+Website groups of styles you want to apply to elements to make a theme 
+You would use a class
+
+
+const styles = getComputedStyle(li)
+Will give you all possible properties for a given value and their properties 
+
+//computed means somtimes styles may come from javascript 
+//or from style sheet or from hover 
+
+h1:hover{
+  color: purple;
+  font-size: '100px'
+}
+//will make something purple every time I hover over it 
+inline style declarations override everything 
+
+Get computed styles. 
+Returns a massive object of every property that has 
+been calculated in css
+Computed color and font size when I hover
+Typing over here and moving cursor as I do it 
+const h1 = document.querySelector('h1')
+const compStyles = getComputedStyle(h1)
+
+compStyles.color 
+
+h1 {
+  color: purple;
+  height: 100px;
+}
+
+compStyles.color 
+
+<li class="todo">Mow the Lawn</li><button>X</button>
+
+.todo{
+  font-size: 30px;
+  color: olive;
+}
+
+const todo = document.querySelector('#todos .todo')
+todo.style.color = "gray"
+todo.style.textDecoration = "line-through"
+todo.style.opacity = "50%"
+
+.done {
+  color: gray;
+  text-decoration: line-through;
+  opacity: 50%;
+}
+
+.getAttribute('class')
+todo.setAttribute('class', 'done')
+//setAttribute takes value and automatically replaces the current class 
+todo.classList 
+todo has done class or not 
+Want to make sure it does not have it 
+Wants to remov eit
+Easiest way is to remove 
+
+//to change a class for styling
+todo.classList.remove('done')
+todo.classList.add('newName')
+todo.classList.toggle('done')
+
+section.appendChild(tagName)
+
+const newLink = document.createElement('a')
+newLink.innerText = "Mr Bubz Video. Click Here"
+newLink.href = "https://www.website.com"
+
+const firstP = document.querrySelector('p')
+firstP.appendChild(newLink)
+
+parentUL.insertBefore(newThingImInserting, whereIwanttoinsertBefore)
+//parent of what I want to insert into, what I'm inserting, where I want to insert before 
+
+Element.insertAdjacentElement(position, element)
+beforebegin 
+  before element 
+afterbegin 
+  before first child
+beforennd 
+  last child 
+afterend 
+  after element 
+  
+name.insertAdjacentElement('beforebegin', newElement)
+
+//do not work in internet explorer 
+// Differnt from appendchild b/c can insert multiple parragrpahs at once 
+.append()
+.prepend()
+  
+
+firstP.append(elementOne, elementTwo)
+Appends both elements to the paragraph 
+
+Node.removeChild()
+//confusing on docs 
+i.e. compatiblity is ? 
+Can I use is another website you can use 
+Yes, .removeChild() is suppored in IE 
+.removeChild()
+Find the parent and the item that you want to remove
+
+When you do remove a child it does remove the removed child
+const deleted = ul.removeChild(li1)
+
+.remove() does not need parent node 
+Just call the item that I actually want to remove 
+
+
+
+
+
+
+
+
 
