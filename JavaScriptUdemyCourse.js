@@ -3438,10 +3438,129 @@ const deleted = ul.removeChild(li1)
 Just call the item that I actually want to remove 
 
 
+Events
+MDN Event reference
+Gives a list of all events in javascript 
+Drag events
+Play 
+Forward
+Progress events 
+Storage Events 
+
+Examples of events 
+clicks, drags, drops, hovers, scrolls, 
+form submission, key presses, focus/blur 
+mouse wheel, double click, copying, pasting, 
+audio start, screen resize, printing 
+
+can make inline event handlers but shouldn't '
+<button onmouseover="alert('You clicked me')">Click me</button>
+
+const btn = document.querySelector('#idName')
+
+//all lowercase
+btn.onclick = function(){
+  console.log("you clced me")
+}
+
+// can do above nut wrong
+
+btn.addEventListener('mouseover', function(e){
+
+})
+
+
+add a scroll can put it on the window 
+window.addEventListener('scroll', function(){
+  console.log('Stop Scrolling')
+})
+
+Scrolling can do something call throttling 
+There's some position you can to scroll past and it will 
+trigger something like an animation '
+Dont want something to happen 300 times 
+
+
+CSS 
+btn.style.left 
+//colt steele animations on CSS youtube 
+
+button {
+  position: absolute;
+  top: 10px; 
+  left: 10 px;
+
+}
 
 
 
+btn.addEventListener('mouseover', function(){
+  const h = Math.floor(Math.random() * window.innerHeight)
+  const w = Math.floor(Math.random() * window.innerWidth)
+  btn.style.left = `${width}px`
+  btn.style.top = `${height}px`
+}
+
+document.body.style,backgroundColor = 'green';
+
+
+this inside of a method which is added on to an object 
+will refer to that object 
+
+box.addEventListener('click', printColor)
+
+const printColor = function(e){
+  console.log(this)
+  //this will be whatever box is clicked on 
+  const h1=document.querySelector('h1')
+  h1.style.color = this.style.backgroundColor
+
+  console.log(e)
+  //will bring up everything for the event 
+  //the event object
+}
+
+'keydown'
+key down event when you press down 
+shift and T is actually two keydown events
+'keyup'
+key up event when i release the key that is held down 
+
+'keypress'
+there needs to be a character or a change like space 
+no shift 
+no capital letter 
+
+if you a making a video game probably want keydown 
+
+//keypress
+but if i want to know when something is changing in an 
+input field, use keypress
+note that return does count as a keypress
+delete is not a keypress 
+someitmes we want to listen for an enter keypress 
 
 
 
+tab to select the input 
+  is only  key up event 
+
+  addItemInput.addEventListener('keypress', function(e){
+    //works b/c Enter is the keypress event when hit return button 
+    if(e.key==="Enter"){
+      //eliminates if nothing is in there
+      if(!this.value) return;
+      const newItemText = this.value;
+      const newItem = document.createElement('li')
+      newItem.innerText = newItemText;
+      itemsUL.appendChild(newItem);
+      this.value = '';
+    }
+  })
+
+  keypress 
+  does not have shift or arrow keys 
+  intended use for keypress only fires in case of an input 
+  for when something shows up
+  shift and k will only account for k 
 
