@@ -3564,3 +3564,65 @@ tab to select the input
   for when something shows up
   shift and k will only account for k 
 
+{/* <body>
+  <form action="">
+    <input type="text" placeholder="credit card">
+      <label>
+        I am a company 
+          <input type="checkbox">
+      </label>
+    </input>
+  </form>
+</body> */}
+
+e.preventDefault() use to intercept the submission and send it 
+to client side database with AJAX 
+Instead of capturing every input change as it happens, we could createa  ariable rthat is in sync witht hat 
+
+Attaching a bunch of event listeners if doing it by input fields 
+By adding a submit event listener only listening for the submit to be entered by the user 
+
+
+With form can go to each place via DOM manipulation 
+to get it done 
+veggieSelect 
+terms on 
+inputField.value 
+checkBox.checked 
+
+
+
+
+creditCardInput.addEventListener('input', (e) => {
+  const input = e.target.value;
+})
+
+checkBox.addEventListener('input', (e)=> {
+  formData['agreeToTerms'] = e.target.checked 
+  //for check box checking if true or false for checked
+})
+
+//callback, figure out which input, store in form data 
+
+<body>
+  <input name="creditCard" type="text"></input>
+  <input name="checkBox" type="checkbox"></input>
+  <select name="selectedVeggie" id="veggie">
+    <option value="eggplant">Eggplant</option>
+  </select>
+</body>
+
+for(let input of [creditCardInput, termsCheckBox]){
+  input.addEventListener('input', ({target}) => {
+    const {name, type, value, checked} = target;
+    //destructuring target from e.target as well as name, type.
+    formData[name] = type === "checkbox" ? checked : value;
+
+    // same as
+    formData[e.target.name] = e.target.type === "checkbox" ? e.target.checked: e.target.value;
+  })
+}
+
+
+
+
