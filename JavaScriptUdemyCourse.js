@@ -3690,4 +3690,14 @@ input.addEventListener('input', ({target}) => {
 })
 }
 
+<body>
+<input name="creditCard" type="text"></input>
+<input name="checkBox" type="checkbox"></input>
+<select name="selectedVeggie" id="veggie">
+  <option value="eggplant">Eggplant</option>
+</select>
+</body>
+
+
+Gotta go with it 
 
