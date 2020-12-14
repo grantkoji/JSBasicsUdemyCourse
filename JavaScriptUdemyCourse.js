@@ -3754,3 +3754,52 @@ ocation .
 makeRant is added to the call stack . 
 
 
+
+
+Please note that spread is not useable in Internet Explorer 
+
+A spread is always ... that behave differently based on where you use it.  
+A spread is expanding them 
+
+
+
+3 uses: 
+spread in a function call, spread in array literals, spread in object literals
+
+
+Math.min(1, 5, 99, 48, 90) //#=> 1
+
+const numbers = [1, 5, 99, 48, 90]
+Math.min(numbers) //#=> NaN 
+
+Math.min(...numbers) //#=> 1
+
+
+Turned Math.min([1, 5, 99, 48, 90]), into Math.min(1, 5, 99, 48, 90)
+The spread allows us to pass in an array into individual arguments 
+
+Using the spread ... turns the entire array into 5 arguments while removing the array 
+braces from the function call. 
+
+You can also use the spread on a string. 
+
+const hiString = "HELLO"
+
+function log(letter1, letter2, letter3, letter4, letter5){
+  console.log(letter1)
+  console.log(letter2)
+  console.log(letter3)
+  console.log(letter4)
+  console.log(letter5)
+}
+
+log(...hiString)
+//Prints
+//"H"
+//"E"
+//"L"
+//"L"
+//"O"
+
+Using the spread on a string in a function call turns each character of the string 
+into separate arguments 
