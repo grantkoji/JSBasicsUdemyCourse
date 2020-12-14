@@ -3701,3 +3701,56 @@ input.addEventListener('input', ({target}) => {
 
 Gotta go with it 
 
+Call stack is a mechanism of JS keep track whre it is 
+in your code .
+The mechanism the JS interpreter uses to keep track of its place 
+in a script that calls mutlilple functions. 
+
+How JS "KNOWS" what function is currently being run and what functions are called form 
+within that funtion, etc
+
+Call stack, which functions are currnetly being run 
+Call stack is book mark or finger keeping t5rack of my current place 
+
+
+First thing out 
+When a script calls a function, the interpreter adds it to the call stack and then 
+starts carrying out the function 
+Any functions that are called by that function are addded to the call stack further up, 
+and run where their calls are RTCIceCandidatePairChangedEvent.
+When the current function is finished, the interpreter takes 
+it off the stack and resumes execution wheter it left off int eh last code listing 
+
+const isRightTriangle = (a, b, c) => {
+  return square(a) + square(b) === square(c)
+}
+
+const makeRant = (phrase, el) => {
+  let text = scream(phrase)
+  let rant = repeat(text, 8)
+  return rant;
+}
+
+Chrome dev tooSimilarGo to Sources tab
+Go to file with code i.e. app.js 
+
+Add a break point. 
+Click on the number to the left of the function calls 
+It will insert a break point and pause execution of code when it hits those points 
+console.log("Hello")
+
+It will run code then pause on that spot 
+Where the break point occured 
+It says paused on brakpoint 
+
+If unclick and refresh it doesnt pause anymore 
+
+We have the Call Stack 
+makeRant is goign to be called 
+makeRant is going to be added ot the calll stack. 
+
+Click on Script inside this breakpoint call 
+ocation . 
+makeRant is added to the call stack . 
+
+
