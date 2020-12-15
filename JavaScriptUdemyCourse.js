@@ -3882,7 +3882,25 @@ Using the spread on a string in an object literal will create key value pairs wi
 indices being the keys and the element, in this case each individual character, 
 being the value. 
 
+Call stack, web api's '
+JAVASCRIPT console.log hi everyone. 
+then you'll see web apis taking over'
 
+Set timeout delay is being kept track for 7 seconds.
+Another timeout for 3 seconds will be handled as well. 
+One more console.log JavaScript moves on and the web API's decide the time is up'
+they add the call back not directly to the queue, but essentially 
+it is a place where callbacks are added and JS will add onto the queue 
+Pause, first thing, call stack has one function called hi everyoneNow it gets 
+to setTimeout function and JS realizes this is one of those things it can add to browser .
+Going to add it to a web api .
+Pause again. Time out that is being kept track of over there and JS 
+creates another line .
+Passes it off to web apis and when interval/delay is over, give me that callback 
+back and JS moves it to console.logs 
+Three second time out finishes. 
+And it adds callback there 
+To the callback queue, which JS will now draw upon. 
 
 
 
