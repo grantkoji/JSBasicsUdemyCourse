@@ -3803,3 +3803,89 @@ log(...hiString)
 
 Using the spread on a string in a function call turns each character of the string 
 into separate arguments 
+
+
+
+const nums1 = [ 1, 5, 20 ]
+const nums2 = [ 25, 40, 60 ]
+[...nums1, ...nums2] // [1, 5, 20, 25, 40, 60]
+['a', 'b', ...nums2] // ['a', 'b', 25, 40, 60]
+[...nums1, 'a', 'b'] // [1, 5, 20, 'a', 'b']
+
+
+
+const states = ["New York", "Florida", "Texas"]
+const statesCopy = [...states]
+statesCopy //["New York", "Florida", "Texas"]
+states === statesCopy //false 
+
+
+"xyz".split('')
+//['x', 'y', 'z']
+[..."xyz"]
+//['x', 'y', 'z']
+
+
+We can use the spread operator to split a string. 
+Can place the string in an array and spread it will do the same thing 
+We are telling JavaScript to iterate over this iterable and add it as 
+an element in the array. Similiar to a function call, we are taking 
+an iterable and breaking it into pieces and copying them into our array destination.
+In this case, we are handling an array. 
+
+So we can spread strings not that common into one array. 
+
+const professionalAthlete = {
+  height: 'tall',
+  speed: 'fast'
+}
+
+const athleteClone = {
+  ...professionalAthlete
+}
+athleteClone 
+// { height: 'tall', speed: 'fast'}
+professionalAthlete === athleteClone 
+// false 
+
+const nbaAthlete = {
+  ...professionalAthlete,
+  jump: 'high'
+}
+nbaAthlete 
+// { height: 'tall', speed: 'fast', jump: 'high'}
+
+
+const professionalAthlete = {
+  height: 'tall',
+  speed: 'fast'
+}
+
+const childAthlete = {
+  ...professionalAthlete,
+  height: 'short'
+}
+
+childAthlete 
+// { speed: 'fast', height: 'short'}
+
+
+
+
+{...'abc'} 
+// {0: 'a', 1: 'b', 2: 'c'}
+
+{...[1, 2, 3]}
+// {0: 1, 1: 2, 2: 3}
+
+Using the spread on a string in an object literal will create key value pairs with the 
+indices being the keys and the element, in this case each individual character, 
+being the value. 
+
+
+
+
+
+
+
+
