@@ -3896,12 +3896,55 @@ to setTimeout function and JS realizes this is one of those things it can add to
 Going to add it to a web api .
 Pause again. Time out that is being kept track of over there and JS 
 creates another line .
-Passes it off to web apis and when interval/delay is over, give me that callback 
+Passes it off to web apis and when interval/delay is over, give asyme that callback 
 back and JS moves it to console.logs 
 Three second time out finishes. 
 And it adds callback there 
 To the callback queue, which JS will now draw upon. 
 
+
+element.style.transform = `translateX(${amount}px)`
+element.getBoundingClientRect()
+  //tells us info about the element
+  //its width, right, left
+
+Callback hell lots of nested functions and callbacks
+Promises allow us to write asynchronous code 
+moveXPromise(btn, 100, 1000)
+  .then()
+
+Promises a pattern for writing async code 
+
+A promise is an object representing the eventual 
+completion or failure of an asynchronous operation 
+
+const willGetYouADog = new Promise((resolve, reject) => {
+  //resolve()
+  //reject()
+  const rand = Math.random()
+  if (rand < 0.5) {
+    resolve()
+  } else {
+    reject()
+  }
+})
+//create new function Promise 
+resolve or reject status
+
+willGetYouADog.then(() => {
+  console.log("Yeah, we got a dog")
+})
+willGetYouADog.catch(() => {
+  console.log('No Dog')
+})
+
+Can chain .then as long as each callback returns 
+a promise 
+.then((r) => {
+  const postId = r.data.topPostId;
+  return fakeRequest(`/posts/${postId}`)
+})
+.then()
 
 
 
