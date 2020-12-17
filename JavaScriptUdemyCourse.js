@@ -3946,7 +3946,35 @@ a promise
 })
 .then()
 
-
+document.addEventListener('DOMContentLoaded', function(){
+  fetchImage(imgIndexUrl, 1)
+})
+function addCommentToDatabase(url, imageId, comment) {
+  fetch(url, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+      },
+      body: JSON.stringify( {
+          "imageId": `${imageId}`,
+          "content": `${comment}`
+      })
+  })
+  .then(resp => resp.json())
+  .then(commentData => addCommentWithPersistance(commentData))
+  .catch(error => alert(error))
+}
+thisLikeButton.addEventListener('click', function(e){
+      
+  if (e.target.className === 'like-button') {
+      let thisLikeCount = thisLikeButton.dataset.likes
+      console.log('me too')
+      const thisImgId = thisLikeButton.dataset.id 
+      thisLikeCount = parseInt(thisLikeCount) + 1
+      fetchPatchLike(imgIndexUrl, thisImgId, thisLikeCount)
+  }
+})
 
 
 
