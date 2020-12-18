@@ -3976,5 +3976,69 @@ thisLikeButton.addEventListener('click', function(e){
   }
 })
 
+What are Pure Components?
+React.PureComponent is exactly the same as React.Component except that 
+it handles the shouldComponentUpdate() method for you. When props or state changes, PureComponent will do a shallow comparison on both props and state. 
+Component on the other hand won't compare current props and state to next out of the box. Thus, the component will re-render by default whenever shouldComponentUpdate is called.
+
+What is the purpose of callback function as an argument of setState()?
+The callback function is invoked when setState finished and the component gets rendered. Since setState() is asynchronous the callback function is used for any post action.
+
+Note: It is recommended to use lifecycle method rather than this callback function.
+
+setState({ name: 'John' }, () => console.log('The name has updated and component re-rendered'))
+
+What is the difference between HTML and React event handling?
+Below are some of the main differences between HTML and React event handling,
+
+In HTML, the event name should be in lowercase:
+
+<button onclick='activateLasers()'>
+Whereas in React it follows camelCase convention:
+
+<button onClick={activateLasers}>
+In HTML, you can return false to prevent default behavior:
+
+<a href='#' onclick='console.log("The link was clicked."); return false;' />
+Whereas in React you must call preventDefault() explicitly:
+
+function handleClick(event) {
+  event.preventDefault()
+  console.log('The link was clicked.')
+}
+In HTML, you need to invoke the function by appending () 
+Whereas in react you should not append () with the function name. (refer "activateLasers" function in the first point for example)
+
+How to bind methods or event handlers in JSX callbacks?
+There are 3 possible ways to achieve this:
+
+Binding in Constructor: In JavaScript classes, the methods are not bound by default. The same thing applies for React event handlers defined as class methods. Normally we bind them in constructor.
+
+class Component extends React.Component {
+  constructor(props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    // ...
+  }
+}
+Public class fields syntax: If you don't like to use bind approach then public class fields syntax can be used to correctly bind callbacks.
+
+handleClick = () => {
+  console.log('this is:', this)
+}
+<button onClick={this.handleClick}>
+  {'Click me'}
+</button>
+Arrow functions in callbacks: You can use arrow functions directly in the callbacks.
+
+<button onClick={(event) => this.handleClick(event)}>
+  {'Click me'}
+</button>
+Note: If the callback is passed as prop to child components, 
+those components might do an extra re-rendering. In those cases, it is preferred to go with .bind() or public class fields syntax approach considering performance.
+
 
 
