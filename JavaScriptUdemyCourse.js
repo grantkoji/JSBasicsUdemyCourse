@@ -4040,5 +4040,81 @@ Arrow functions in callbacks: You can use arrow functions directly in the callba
 Note: If the callback is passed as prop to child components, 
 those components might do an extra re-rendering. In those cases, it is preferred to go with .bind() or public class fields syntax approach considering performance.
 
+The major features of React are:
+
+It uses VirtualDOM instead of RealDOM considering that RealDOM manipulations are expensive.
+Supports server-side rendering.
+Follows Unidirectional data flow or data binding.
+Uses reusable/composable UI components to develop the view.
+
+What is JSX?
+JSX is a XML-like syntax extension to ECMAScript (the acronym stands for JavaScript XML). Basically it just provides syntactic sugar for the React.createElement() function, giving us 
+expressiveness of JavaScript along with HTML like template syntax.
+
+Whereas a component can be declared in several different ways. It can be a class with a render() method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
+
+const Button = ({ onLogin }) =>
+  <div id={'login-btn'} onClick={onLogin}>Login</div>
+Then JSX gets transpiled to a React.createElement() function tree:
+
+const Button = ({ onLogin }) => React.createElement(
+  'div',
+  { id: 'login-btn', onClick: onLogin },
+  'Login'
+)
+
+What are Pure Components?
+React.PureComponent is exactly the same as React.Component except that it handles the shouldComponentUpdate() method for you. When props or state changes, PureComponent will do a shallow comparison on both props and state. Component on the other hand won't compare current props and state to next out of the box. Thus, the component 
+will re-render by default whenever shouldComponentUpdate is called.
+
+
+What is state in React?
+State of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state 
+as simple as possible and minimize the number of stateful components.
+
+State is similar to props, but it is private and fully controlled by 
+the component. i.e, It is not accessible to any component other than 
+the one that owns and sets it.
+
+What are props in React?
+Props are inputs to components. 
+They are single values or objects containing a set of values
+ that are passed to components on creation using a naming convention similar to HTML-tag attributes. They are data passed down from a parent component to a child component.
+
+ What is the difference between state and props?
+ Both props and state are plain JavaScript objects. 
+ While both of them hold information that influences the output of render, 
+ they are different in their functionality with respect to component. Props get passed to the component similar to function parameters whereas state is managed within the component similar to variables declared within a function.
+
+ Why should we not update the state directly?
+If you try to update state directly then it won't re-render the component.
+
+//Wrong
+this.state.message = 'Hello world'
+Instead use setState() method. It schedules an update to a component's state object. When state changes, the component responds by re-rendering.
+
+//Correct
+this.setState({ message: 'Hello World' })
+
+How to pass a parameter to an event handler or callback?
+You can use an arrow function to wrap around an event handler and pass parameters:
+
+<button onClick={() => this.handleClick(id)} />
+This is an equivalent to calling .bind:
+
+<button onClick={this.handleClick.bind(this, id)} />
+Apart from these two approaches, you can also pass arguments to a function which is defined as arrow function
+
+<button onClick={this.handleClick(id)} />
+handleClick = (id) => () => {
+    console.log("Hello, your ticket number is", id)
+};
+
+
+
+
+
+
+
 
 
