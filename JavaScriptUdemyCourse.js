@@ -4111,6 +4111,78 @@ handleClick = (id) => () => {
 };
 
 
+ow to pass a parameter to an event handler or callback?
+You can use an arrow function to wrap around an event handler and pass parameters:
+
+<button onClick={() => this.handleClick(id)} />
+This is an equivalent to calling .bind:
+
+<button onClick={this.handleClick.bind(this, id)} />
+Apart from these two approaches, you can also pass arguments to a function which is defined as arrow function
+
+<button onClick={this.handleClick(id)} />
+handleClick = (id) => () => {
+    console.log("Hello, your ticket number is", id)
+};
+
+What are synthetic events in React?
+SyntheticEvent is a cross-browser wrapper around the browser's native event. It's API is same as the browser's native event, including stopPropagation() and preventDefault(), 
+except the events work identically across all browsers.
+
+What are inline conditional expressions?
+You can use either if statements or ternary expressions which are available from JS to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator &&.
+
+<h1>Hello!</h1>
+{
+    messages.length > 0 && !isLogin?
+      <h2>
+          You have {messages.length} unread messages.
+      </h2>
+      :
+      <h2>
+          You don't have unread messages.
+      </h2>
+}
+
+What are inline conditional expressions?
+You can use either if statements or ternary expressions which are available from JS to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator &&.
+
+<h1>Hello!</h1>
+{
+    messages.length > 0 && !isLogin?
+      <h2>
+          You have {messages.length} unread messages.
+      </h2>
+      :
+      <h2>
+          You don't have unread messages.
+      </h2>
+}
+
+What is "key" prop and what is the benefit of using it in arrays of elements?
+A key is a special string attribute you should include when creating arrays of elements. Key prop helps React identify which items have changed, are added, or are removed.
+
+Most often we use ID from our data as key:
+
+const todoItems = todos.map((todo) =>
+  <li key={todo.id}>
+    {todo.text}
+  </li>
+)
+When you don't have stable IDs for rendered items, you may use the item index as a key as a last resort:
+
+const todoItems = todos.map((todo, index) =>
+  <li key={index}>
+    {todo.text}
+  </li>
+)
+Note:
+
+Using indexes for keys is not recommended if the order of items may change. This can negatively impact performance and may cause issues with component state.
+If you extract list item as separate component then apply keys on list component instead of li tag.
+There will be a warning message in the console if the key prop is not present on list items.
+
+
 
 
 
