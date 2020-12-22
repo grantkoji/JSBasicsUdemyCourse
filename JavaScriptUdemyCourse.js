@@ -4260,3 +4260,95 @@ fetch('')
 
 For a .then to work it must return a promise 
 
+
+const fetchNextPlanets = (url = '') => {
+  return fetch(url)
+}
+
+Can call when fetching a function and either receiving a new URL or 
+Starting with the default starint url 
+
+Axios github
+Official github repository has a ton of starts used by 2 million people 
+It simplifies the process of using fetch 
+
+It is promised based. 
+Both the client/browser side of things 
+and on the server side using node.js 
+Can use a tool like Axios using Node 
+One library, one way of fetching data that will work in the browser and Node.js 
+
+If we want to use Axios, we need to include it as an HTML file in our script 
+Can copy the cdn 
+Script is an external source. 
+If we visit it, we load the source of Axios 
+Minified into chunk of text that we use for Axios 
+
+We definitely want to include it before our own files uisng Axios 
+
+Referencing Axios in our App.js 
+
+JavaScript won't know about Axios'
+How do we make a request 
+Perform a get request 
+
+//instead of using fetch
+axios.get(url)
+//I get a promise back 
+Value of it, there is a data property that has already 
+been parsed for us. We dont have to do the json parsing on our own 
+
+If we want to weed out the bad status code, we have to manuallyu do it 
+If we use axios, those arent a problem anymore
+
+axios.get('web').then((res) => {
+  console.log(res.data)
+}).catch((err) => {
+  console.log(error)
+})
+
+Fetch does not reject a promise if its something other than 
+200 
+
+Axios knows that typically if there is a status code if its 
+not okay, were going to want to go to the catch callback 
+It simplifies thing in two ways
+Dont have to parse json 
+And dont have to weed out non 200 status code, 
+but there will be an automatic rejection of 
+return 
+
+Sequential Axios Requests 
+
+axios.get('urlName')
+.then((data) =>{
+  console.log(data)
+  for (let planet of data.results){
+  console.log(planet.name)
+
+  }
+  return axios.get(data.next)
+})
+.then(
+
+)
+
+const fetchNextPlanets = (url = "") => {
+  return axios.get(url)
+}
+
+const printPlanets = (data) => {
+  console.log(data)
+  for (let planet of data.results){
+    console.log(planet.name)
+  }
+  return Promise.resolve(data.next)
+}
+
+fetchNextPlanets()
+.then(printPlanets)
+.then(fetchNextPlanets)
+.then(printPlanets)
+
+</button>
+<button></button>
