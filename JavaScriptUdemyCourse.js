@@ -4214,11 +4214,49 @@ Using indexes for keys is not recommended if the order of items may change. This
 If you extract list item as separate component then apply keys on list component instead of li tag.
 There will be a warning message in the console if the key prop is not present on list items.
 
+""'
+Refactor fetch requests
+fetch('')
+.then(response)
+if(!response.ok)
+  rhow new Error
 
 
+.then(data => {
+  for (let planet of data.results){
 
+  }
+})
 
+Copy the logic, and place down                       
+To place the name of each planet 
 
+const checkStatusAndParse = (response) => {
+  if(!response.ok) thorw new Error(`Satus Code Error: ${response.status}`)
+  return response.json()
+}
 
+const printPlanets = (data) => {
+  console.log('Loaded 10 more planets...')
+  for (let planet of data.results){
+    console.log(planet.name)
+  }
+  // const p = newPromise((resolve, reject) =>{
+  //   resolve()
+  // })
+  // return p
 
+  // or can use
+  return Promise.resolve(data)
+}
+//just passing the data again as a promise 
+
+fetch('')
+.then(checkStatusAndParse){
+
+}
+.then(printPlanets)
+.then(getMorePlanets)
+
+For a .then to work it must return a promise 
 
