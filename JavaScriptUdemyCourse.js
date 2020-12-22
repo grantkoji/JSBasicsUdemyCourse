@@ -1319,8 +1319,16 @@ A parameter is when we create the function, the
 variable we are placing inside the function 
 
 function divide(a, b){
-  
+  return a / b
 }
+
+divide(6, 3) //#=> 2
+divide(3) //#=> Nan 
+//Second argument is undefined 
+//and 3 divided by undefined equals NaN
+
+
+
 Parameters a, b 
 divide(4, 2)
 Arguments 4, 2
@@ -2392,6 +2400,29 @@ function sum(){
   })
 }
 
+
+function divide(a, b){
+  return a / b
+}
+
+divide(6, 3) //#=> 2
+
+
+function divide(a, b){
+  return a / b
+}
+
+divide(3)
+//calls the function:
+function divide(3){
+  return 3 / undefined
+}
+
+divide(3) //#=> Nan 
+//Second argument is undefined 
+//and 3 divided by undefined equals NaN
+
+
 function fullName(first, last){
   console.log(arguments)
 }
@@ -2415,6 +2446,7 @@ function sum(...nums){
   return nums.reduce((total, currVal) =>{
     return total + currVal;
   })
+
 }
 
 CAn use ... REST to also collect all remaining arguments that does not match 
