@@ -4459,10 +4459,105 @@ Will just store things in the variable and have access to it on the very next li
 
 Await can only work in an async function 
 
+minAge > 0 ? <div>Say something</div> : null; 
 
 
 
+import React from 'react';
+
+const NavBar = props => {
+  return (
+    <div className='navbar'>
+
+    </div>
+  )
+}
+
+export default NavBar
 
 
+<App /> if parents, renders its div and renders 
+NavBar, game cards etc. 
 
+const gameContainer = props => {
+  return (
+    <div id="game-list">
+      {boardGames.map((game, index) =>
+        <GameCard 
+          key={game.id}
+          name={game.name}
+          isCollaborative={game.isCollaborative}
+        />
+      )}
+    </div>
+  )
+}
+
+Learn styled components 
+
+look up react Events
+Handling Events React 
+IN react, when I find the component I want to create 
+just like ai give it a style, i define its event behavior int he tag 
+First behavior when select game is clicked want to show an aelrttwith 
+game played 
+
+class GameCard extends React.Component {
+  handleClick() {
+    console.log('clicked a gamecard', this)
+  }
+  //this is undefined right here
+  //this is question of binding
+  //because this is an instance method, we hoped this would be an instance of 
+  //game card. B/c it is unbound 
+  //Reason doesnt know what this is because it is unbound 
+  //Havent defined this as game card 
+
+  handleClick = () => {
+    //this keyword is BOUND TO the this where the function is defined 
+    //this is defined in instance of game card, thus this is 
+    //referred to as game card regardless of where it is invoked. 
+    console.log('clicked a gamecard', this)
+  }
+  //this is the gameCard object here with key/value pairs 
+  //Everything in JS is key/value pairs secretly 
+  //Knows it it is because this is bound here 
+  //Arrow functions at ES6 had folks update in JS 
+  //Because of React JS developers moved away from functional programming 
+  //And binding was becoming a huge issue 
+  //So they gave us this out 
+
+
+  handleClick = (e) => {
+    setTimeout(() => console.log('clicked a gamecard', e.target), 1000)
+    //doesn't work above 
+    //instead 
+
+    Save info into different variable 
+
+    let target = event.target 
+    setTimeout(()=> console.log('clicked a gamecard', target), 1000)
+    
+  }
+  render(){
+    const { name, minAge, minPlayers, maxPlayers, isCollaborative, likes } = this.props;
+    return (
+      <div className="game-card">
+        <h3>{name}</h3>
+        <div>{minAge}+ yeards old</div>
+
+        {/* <button onClick={()=> console.log('clicked a gamecard')}>Click a button</button> */}
+        <button onClick={this.handleClick}>Click a button</button>
+        {/* //passing in must be a reference, cannot be the invocation itself  */}
+        {/* Can also write below when function is invoked, here is 
+        what we are passing and invoking the this.handleClick function  */}
+        <button onClick={()=>this.handleClick()}>Click a button</button>
+        //if using evnts 
+        <button onClick={(e)=>this.handleClick(e)}>Click a button</button>
+      
+      </div>
+    )
+  
+  }
+}
 
