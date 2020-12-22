@@ -4561,3 +4561,42 @@ class GameCard extends React.Component {
   }
 }
 
+expo SMS 
+expo phone call 
+expo as commmand line interface for everything 
+
+CSS trick add background white to see what its covering 
+Margintop space on top
+
+divs dont inherit from parents so if I want to center something
+Hvae to do it individually 
+
+import TouchableOpacity from React Native 
+b/c not much with HTML available 
+
+justifyContent: 'center', alignItems: 'center',
+
+View is like styling
+
+Has pre set colors
+Colors.rugged.primary 
+
+flex-direction: row
+space-around 
+
+
+height: 30
+width: 30 =
+borderRadius: 15 
+
+Makes a circle 
+
+Use React Native debugger
+
+MTBoldText
+Bold, regular, medium, or light 
+
+
+
+
+
