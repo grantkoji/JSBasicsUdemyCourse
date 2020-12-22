@@ -4350,5 +4350,119 @@ fetchNextPlanets()
 .then(fetchNextPlanets)
 .then(printPlanets)
 
+Axios is pre parsed for us
+
 </button>
 <button></button>
+
+Async functions depends on promises 
+A sink 
+Async functions are a nice syntactical sugar for promises 
+Still have to understand promises 
+
+Async functions, if we have some regular old function 
+
+function getData(){
+  const data = axios.get('url')
+  console.log(data)
+}
+
+To write code like above without having to 
+use .then, 
+one code wont run until the other finished 
+
+Would need to use .then 
+function getData(){
+  const data = axios.get('url').then((data) => {
+    console.log(data)
+  })
+}
+
+Can instead use the async keyword 
+Async keyword in front of function keyword or definition 
+
+Async functions always return a promise 
+If the function returns a value, the promise will be rresolved with that 
+value 
+If the function throws an exception,t he promise will be rejected 
+
+function greet(){
+  return "Hello!"
+}
+
+async function greet(){
+  return "Hello!"
+}
+
+Promise will be resolved with value .
+Function above returns a promise
+
+greet().then((val) => {
+  console.log('Promise reoslved with: ', val)
+})
+
+async function add(x, y){
+  if(typeof x !== 'number' || typeof y !=='number'){
+    throw 'X and Y must be numbers'
+  }
+  return x + y; 
+}
+
+//without async version would have to do 
+function add(x, y){
+  return new Promise((resolve, reject) => {
+    if(typeof x !== 'number' || typeof y !== 'number'){
+      reject('x and y must be numbers')
+    }
+    resolve(x + y)
+  })
+}
+
+
+add('e', 'r')
+.then((val) => {
+  console.log('Promis eresolved with: ', val)
+})
+.catch((err) => {
+  console.log('Promise resolved with: )', err)
+})
+
+Async can return promises 
+Wraps function in a promise 
+
+The await keywrod inside of functions declared with async 
+await will pause the execution of the function, waiting for a 
+promise to be resolved 
+
+function getPlanets(){
+  return axios.get('')
+}
+
+getPlanets().then((res) => {
+  console.log(res.data)
+})
+
+Easier way is
+
+async function getPlanets(){
+  const res = await axios.get('')
+  console.log(res.data)
+}
+//will run only after promise is resolved. 
+//one thing happens, it finishes then the next thing 
+// happens and finishes
+
+getPlanets() still returns a promise 
+By putting await there, JavaScript will wait until the promise is resolved 
+
+Will just store things in the variable and have access to it on the very next line 
+
+Await can only work in an async function 
+
+
+
+
+
+
+
+
