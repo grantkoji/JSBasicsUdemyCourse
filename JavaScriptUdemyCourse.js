@@ -4597,6 +4597,58 @@ MTBoldText
 Bold, regular, medium, or light 
 
 
+Old School create staate 
+
+constructor(props){
+  super()
+  this.state {
+    like: props.likes;
+  }
+  this.handleClick = this.handleClick.bind(this)
+}
+
+//Arrow functions, we handle the binding 
+state = {
+  likes: this.props.likes;
+}
+
+Legacy code bases have that going on with constructor(props)
+
+
+handleClick = (event) => {
+  this.setState({likes: this.state.likes + 1})
+}
+
+//One of biggest rules in React is you cannot mutate state 
+
+One state is updated, it will trigger a re-render
+User sees it up there 
+
+//Functional setState to handle asynchrosity 
+
+handleClick = (someCustomArg) => {
+  //If I need some custom argument, I need to use the notation below
+}
+
+<button onClick={this.handleClick('someCustomArg')}>{this.state.likes} likes</button>
+
+getAllGames = () => {
+  fetch('')
+  .then(r => r.json)
+  .then(data => {
+    console.log('inside of fetch', data)
+    this.setState({games: data})
+  })
+}
+
+<div className="game-list">
+  {boardGames.map((game, index) =>
+    <GameCard
+      key={index}
+      name={game.name}  
+    />
+  )}
+</div>
 
 
 
