@@ -4650,5 +4650,149 @@ getAllGames = () => {
   )}
 </div>
 
+React Native
+A collection of "special" React components 
+Components compiled to Native Widgets 
+Native Platform API's exposed to JavaScript'
+Connects JavaScript and Native platform Code 
+
+Combine React.js and React Native 
+Take your JavaScript and add to ios 
+
+Get a result in the end;
+
+const App = props => {
+  return(
+    <View>
+      <Text> Hello there!</Text>
+    </View>
+  )
+}
+
+
+React for 
+
+Sodalyt how its been so far 
+Background with my experience 
+How I know Nick 
+
+How I got into this whole technical field 
+
+expo 
+Project is within my grasp 
+
+Get on the wagon and start going 
+
+Ideally start the entire code base 
+
+Sodalyt 
+MVP 
+Working together a lot 
+When they were doing the project, especially at the beginning 
+A lot of phone and zoom discussions 
+See how well it connects 
+
+AWS 
+In the beginning, Nick and Marco hadn't used AWS'
+EC2 instance to host a database 
+Used one of their databases once 
+Once you start going through the tutorials and see how well everything connects with each other
+Something he realizes things that took him an hour before takes him about 5 minutes 
+
+AWS is complex in the very beginning, but I'll get a grasp on it over time '
+Ill be given access to my own company email address and access to AWS console 
+Then Ill get the whole services playground to work with 
+
+Dont know how much he used AWS besides AWS amplify 
+Most of AWS 
+Native 
+A lot of when he does build up the app, it is hosted on AWS 
+It is the invoke APIs and Urls from them 
+He would ask access to this kind of data 
+It needs to be formatted in this way
+He creates an AWS lambda function that accesses data 
+and returns the data in json 
+Returns the object for the URL 
+Nick did some post SQL work 
+Dont know if theyll do it 
+If they do it in the future or not 
+What he and NIck came up with the project, they got to determine 
+all the technical aspects to do with it
+After the MVP, I will decide what other tools 
+How else to integrate other things with it 
+AWS cognito 
+AWS password management system 
+Has a placeholder now but not the best 
+Need a better authentication tool 
+But will use cognito with that 
+It is a big thing to learn and not a big deal to deal with it
+
+Talk about Android and iOS versions of the app 
+juggling with it 
+Android developer 
+iOS developer 
+
+I would lead the front end development team 
+He has a long term vision of where they are 
+Hope is that theyre expanding the team in the near future 
+Within the next 3 or 4 months 
+They may expect two or more developers to come aboard 
+
+They know the founders want to expand the team 
+
+After getting investor money to reach that June ish time frame to launch the app 
+
+App to present to investors 
+Once they see how good that is. 
+Full steam ahead. 
+
+Work with Nick at Flatiron 
+
+Not an issue b/c does not know experience with applying to other jobs 
+One to three years of experience 
+Hes not a big believer in quantifying years of experience 
+Could have been doing the most menial task that requires a very little 
+Bit of coding 
+In reality, they didnt code that much and their experience 
+Not a general law of it 
+More hours dedicated to work 
+and how creative you were with coding 
+
+More weight with decision 
+More about what Ive done in amount of time Ive had 
+
+Its been great 
+Marco misses the blogging part 
+He loves being able to focus on this work 
+And when he was doing the blogging 
+Was getting paid over $100 per day over his blogs 
+His blogs actually bring in an income 
+They take care of the groceries once per month 
+Right now, even though he doesnt publish anything 
+Until that drops wont publish another article 
+Like the article part 
+Like the coding part more 
+Get the app up and running and trying to make this company 
+
+Infosys 
+He got the other offer and was offered relocation stuff 
+Bigger company is something the start up cannot match 
+Mistake is the start up didnt lock them up at the very beginning 
+Paid them weekly 
+Nothing in writing solidifying employment status 
+Led to other opportunities 
+They were afraid of commitment 
+I'd do cosmetic challenges '
+Version compatibility 
+And internationl compatibility 
+Wed be the ones who are going to get paid 
+Transition is happening 
+If they had tried to sign them sooner 
+He wouldve been less inclined to as well 
+Unfortunate aspect of the info 
+
+To Do Lists of tasks I need to get done 
+
+
 
 
