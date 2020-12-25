@@ -4858,6 +4858,164 @@ export default function App() {
   );
 }
 
+3.34) Touchable wraps around whatever you want
+Finished touch events that are more detailed and configured for you 
+Touchable acts more as a parent class for React Native b/c multiple different 
+Versions of Touchable to use
+TouchableOpacity 
+	Gives you high level touch events to listen to 
+	Gives us visible feedback of touching the event with opacity being changed 
+	When the button is pressed
+	Press this, the opacity effect is way less strong 
+All will listen to the press event
+
+I can control opacity with activeOpacity 
+Will be less transparent when press it to control the extent to 
+which Opacity is effected.
+All will listen to press effect
+
+<TouchableOpacity activeOpacity={0.8} onPress={props.onDelete}>
+           <View style={styles.listItem}>
+               <Text>{props.title}</Text>
+           </View>
+       </TouchableOpacity>
+
+
+TouchableHighlight allows you to listen to high level press events 
+	Background color changes to black 
+
+
+   <TouchableHighLight onPress={props.onDelete}>
+           <View style={styles.listItem}>
+               <Text>{props.title}</Text>
+           </View>
+       </TouchableHighLight>
+
+
+TouchableNativeFeedback
+gives ripple effect 
+Use docs on how to change it up 
+
+TouchableWithoutFeedback
+	Gives no visual feedback
+	Sometimes you can tap as much as possible, but don’t want to give feedback to the 
+	user. 
+3.35) Remove
+
+Parent
+ const removeGoalHandler = goalId => {
+   setCourseGoals(currentGoals => {
+     return currentGoals.filter(goal => goal.id !== goalId)
+   })
+ }
+<FlatList
+        keyExtractor={(item, index) => item.id}
+        data={courseGoals}
+          itemData={itemData =>
+           <GoalItem id={itemData.item.id} onDelete={removeGoalHandler}/>
+           {/* <GoalItem onDelete={removeGoalHandler.bind(this, itemData.item.id)}/> */}
+          }
+        />      
+
+
+Child
+return (
+       <TouchableHighLight onPress={props.onDelete.bind(this, props.id)}>
+     
+       <View style={styles.listItem}>
+           <Text>{props.title}</Text>
+       </View>
+   </TouchableHighLight>
+
+3.36) Modal Overlay 
+
+Import Modal 
+  //empty screen when clikc the modal
+     <Modal visibility={false}>
+
+Parent, passing down isAddMode to true or false
+const [isAtMode, setIsAtMode] = useState(false)
+<View style={styles.screen}>
+       <Button title="Add New Goal" onPress={() => setIsAddMode(true)}/>
+      
+       {/* isAddMode added to visible prop */}
+       <GoalInput visible={isAddMode} onAddGoal={addGoalHandler}/>
+       <View>
+
+Child, using true or false to bring input box visible and with slidingtehcnique
+   return (
+       <Modal visible={props.visible} animationType="slide">
+           <View style={styles.inputContainer}>
+           <TextInput
+           placeholder="Course Goal"
+           style={styles.input}
+           onChangeText={goalInputHandler}
+           value={enteredGoal}
+               //enteredGoal being updated with onChangeText goalInputHandler
+           />
+ 
+           {/* forward entered goal in calling anonymous arrow function  */}
+           <Button title="Add" onPress={() => props.onAddGoal(enteredGoal)} />
+          
+           {/* Can use bind JS feature to preconfigure some arguments that should
+           eventually be passed along as soona s the argument is executed
+           first argument is this.
+           Second argument is received by the function, when the button is pressed
+           */}
+           <Button title="Add" onPress={props.onAddGoal.bind(this, enteredGoal)} />
+           </View>
+       </Modal>
+   )
+
+Next step is to make sure Modal is centered 
+
+3.37) More Flexbox styling 
+Modal takes full space of screen 
+But View only takes full space of its children
+View has height of its children text input and button combined and broadest width 
+of text Input and width 
+To make the view take the full available spac where 
+
+I can go to the style I applied to the view and set flex: 1
+
+
+return (
+       <Modal visible={props.visible} animationType="slide">
+           <View style={styles.inputContainer}>
+           <TextInput
+           placeholder="Course Goal"
+           style={styles.input}
+           onChangeText={goalInputHandler}
+           value={enteredGoal}
+        
+           />         
+           <Button title="Add" onPress={() => props.onAddGoal(enteredGoal)} />
+           </View>
+       </Modal>
+   )
+const styles = StyleSheet.create({
+   screen: {
+     padding: 50
+   },
+   //centers input container to middle
+   //need to set flex to make sure it takes all space as its
+   //parent element gives it, otherwise it just takes its child elements
+   //space
+   inputContainer: {
+       flex: 1,
+       justifyContent: 'center',
+       alignItems: 'center'
+   },
+   textInput: {
+       width: '80%',
+       borderColor: 'black',
+       borderWidth: 1,
+       padding: 10,
+       marginBottom: 10
+   },
+  
+ });
+
 
 
 
