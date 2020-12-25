@@ -4793,6 +4793,79 @@ Unfortunate aspect of the info
 
 To Do Lists of tasks I need to get done 
 
+import { StatusBar } from 'expo-status-bar';
+import React, {useState} from 'react';
+// importing hooks. Must use hooks for state
+ 
+import { StyleSheet, Text, Button, View } from 'react-native';
+ 
+export default function App() {
+ const [outputText, setOutputText] = useState('Open up App')
+  return (
+   <View style={styles.container}>
+    
+     <Text>{outputText} </Text>
+     <StatusBar style="auto" />
+     <Button title="Change Text" onPress={() => setOutputText('changed')}/>
+     {/* Closing tag for a button  onPress same as onClick*/}
+   </View>
+ );
+}
+ 
+const styles = StyleSheet.create({
+ container: {
+   flex: 1,
+   backgroundColor: '#fff',
+   alignItems: 'center',
+   justifyContent: 'center',
+ },
+});
+
+import { StatusBar } from 'expo-status-bar';
+import React, {useState} from 'react';
+// importing hooks. Must use hooks for state
+
+import { StyleSheet, Text, Button, TextInput, View } from 'react-native';
+
+export default function App() {
+  const [outputText, setOutputText] = useState('Open up App')
+  
+  return (
+    //ADD SOME PADDING, distance from border on it to the 
+    //the content of the view 
+    //border of the view to the content in the view distance is apadding
+    //style expects a JS Object. So fire it's style, inside it is an object 
+    //with key/value pairs. Property names/values 
+    <View style={{padding: 30}}>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+      {/* Row to change from column 
+      space between gives them in spaace in between different items 
+      justify Content across the main axis 
+      alignItems are across the cross axis 
+      Vertically center items with alignItems: center  */}
+
+      {/* //puts a line across the bottom border line */}
+        <TextInput placeholder="Course Goal" style={{borderBottomColor: 'black', borderBottomWidth: 1}}/>
+      {/* //puts a line across the entire input box   */}
+        <TextInput placeholder="Course Goal" style={{width: '80%', borderColor: 'black', borderWidth: 1, padding: 10}}/>
+      {/* Alternative syntax is camelCase, doesnt use dash case like it does in JS. */}
+      {/* Have to use property names I find in official docs  */}
+
+      {/* //padding spacing between border and where I enter something  */}
+        <Button title="ADD" />
+      </View>
+    </View>
+  );
+}
+
+
+
+
+
+
+
+
+
 
 
 
