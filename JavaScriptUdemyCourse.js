@@ -4918,55 +4918,55 @@ Parent
         />      
 
 
-Child
-return (
-       <TouchableHighLight onPress={props.onDelete.bind(this, props.id)}>
+// Child
+// return (
+//        <TouchableHighLight onPress={props.onDelete.bind(this, props.id)}>
      
-       <View style={styles.listItem}>
-           <Text>{props.title}</Text>
-       </View>
-   </TouchableHighLight>
+//        <View style={styles.listItem}>
+//            <Text>{props.title}</Text>
+//        </View>
+//    </TouchableHighLight>
 
-3.36) Modal Overlay 
+// 3.36) Modal Overlay 
 
-Import Modal 
-  //empty screen when clikc the modal
-     <Modal visibility={false}>
+// Import Modal 
+//   //empty screen when clikc the modal
+//      <Modal visibility={false}>
 
-Parent, passing down isAddMode to true or false
-const [isAtMode, setIsAtMode] = useState(false)
-<View style={styles.screen}>
-       <Button title="Add New Goal" onPress={() => setIsAddMode(true)}/>
+// Parent, passing down isAddMode to true or false
+// const [isAtMode, setIsAtMode] = useState(false)
+// <View style={styles.screen}>
+//        <Button title="Add New Goal" onPress={() => setIsAddMode(true)}/>
       
-       {/* isAddMode added to visible prop */}
-       <GoalInput visible={isAddMode} onAddGoal={addGoalHandler}/>
-       <View>
+//        {/* isAddMode added to visible prop */}
+//        <GoalInput visible={isAddMode} onAddGoal={addGoalHandler}/>
+//        <View>
 
-Child, using true or false to bring input box visible and with slidingtehcnique
-   return (
-       <Modal visible={props.visible} animationType="slide">
-           <View style={styles.inputContainer}>
-           <TextInput
-           placeholder="Course Goal"
-           style={styles.input}
-           onChangeText={goalInputHandler}
-           value={enteredGoal}
-               //enteredGoal being updated with onChangeText goalInputHandler
-           />
+// Child, using true or false to bring input box visible and with slidingtehcnique
+//    return (
+//        <Modal visible={props.visible} animationType="slide">
+//            <View style={styles.inputContainer}>
+//            <TextInput
+//            placeholder="Course Goal"
+//            style={styles.input}
+//            onChangeText={goalInputHandler}
+//            value={enteredGoal}
+//                //enteredGoal being updated with onChangeText goalInputHandler
+//            />
  
-           {/* forward entered goal in calling anonymous arrow function  */}
-           <Button title="Add" onPress={() => props.onAddGoal(enteredGoal)} />
+//            {/* forward entered goal in calling anonymous arrow function  */}
+//            <Button title="Add" onPress={() => props.onAddGoal(enteredGoal)} />
           
-           {/* Can use bind JS feature to preconfigure some arguments that should
-           eventually be passed along as soona s the argument is executed
-           first argument is this.
-           Second argument is received by the function, when the button is pressed
-           */}
-           <Button title="Add" onPress={props.onAddGoal.bind(this, enteredGoal)} />
-           </View>
-       </Modal>
-   )
-
+//            {/* Can use bind JS feature to preconfigure some arguments that should
+//            eventually be passed along as soona s the argument is executed
+//            first argument is this.
+//            Second argument is received by the function, when the button is pressed
+//            */}
+//            <Button title="Add" onPress={props.onAddGoal.bind(this, enteredGoal)} />
+//            </View>
+//        </Modal>
+//    )
+{/* 
 Next step is to make sure Modal is centered 
 
 3.37) More Flexbox styling 
@@ -5014,16 +5014,193 @@ const styles = StyleSheet.create({
        marginBottom: 10
    },
   
- });
+ }); */}
+
+
+{/* 
+If we have something that relies on a 
+const styles = StyleSheet.create({
+ container: {
+   flex: 1,
+   backgroundColor: '#fff',
+   alignItems: 'center',
+   justifyContent: 'center',
+ },
+});
+(){}() ))))))) Math.random() */}
+
+3.34) Touchable wraps around whatever you want
+Finished touch events that are more detailed and configured for you 
+Touchable acts more as a parent class for React Native b/c multiple different 
+Versions of Touchable to use
+
+
+function runSomething(){
+
+}
 
 
 
+fetch('http://localhost:3000/users')
+.then(response => response.json)
+.then(data => callback(data))
+
+
+function getData
+
+Async function always return a promise 
+If the async function returns a value, the promise will 
+be resolved with that value 
+
+If the function throws an exception, the promise will be rejected. 
+
+Put the async keyword in front of the function 
+
+async function getRequestLocalHost(){
+  return 
+}
+
+function stringGreeting(){
+  return "Hello"
+}
+
+stringGreeting() 
+//#=> "Hello"
+
+async function asyncStringGreeting(){
+  return "Hello"
+}
+
+asyncStringGreeting() 
+//#=>Promise (<resolved>: "Hello")
+
+If I put the async declaration in front of the function 
+I return a Promise that is resolved with the value of "Hello"
 
 
 
+async function asyncStringGreeting(){
+  return "Hello"
+}
+asyncStringGreeting().then((value) => {
+  console.log('Promise resolved with ', value)
+})
+//Prints: "Promise resolved with Hello"
+
+The .then resolves the promise 
+
+Those two simple functions dont do anything asynchronous, so why use a promise 
+
+Promises might be rejected or might be resolved 
+Instead of returning a rejected promises, we can throw an Error to show 
+If a promise is rejected 
+
+async function add(a, b){
+  if(typeof a !== "number" || typeof y !== "number"){
+    throw 'One of a or b is not a number.'
+  }
+  return a + b
+}
+
+add(4, 5)
+//#=>Promise (<resolved>: 9)
+
+add('c', 5)
+//#=>Uncaught (in promise) One of a or b is not a number.
 
 
+If you throw an exception, it will be thrown with that function .
 
+async function add(a, b){
+  if(typeof a !== "number" || typeof y !== "number"){
+    throw 'One of a or b is not a number.'
+  }
+  return a + b
+}
+
+add(4, 5)
+.then((value) => {
+  console.log('Promise resolved totaling, ', value)
+})
+.catch((error) => {
+  console.log('Promise rejected: ', error)
+})
+//Prints: Promise resolved totaling 9
+
+add('California', 'New York')
+.then((value) => {
+  console.log('Promise resolved totaling, ', value)
+})
+.catch((error) => {
+  console.log('Promise rejected: ', error)
+})
+//Prints: Promise rejected. One of a or b is not a number. 
+
+
+The function now follows the resolve or reject formula of a promise. 
+If a and b are both numbers, the function will resolve, adding the two numbers .
+If one of a or b is not a number, the function will reject the value, Returning 
+a rejected promise.
+By adding a .catch(error) after the .then, .catch function will run if 
+the promise is rejected and send the .catch() the string that is entered into the 
+reject() function, in this case, 'One of a or b is not a number.'
+
+function add(x, y){
+  return new Promise((resolve, reject) => {
+    if(typeof a !== "number" || typeof y !== "number"){
+      reject('One of a or b is not a number.')
+    }
+    return a + b
+  })
+}
+
+The async keyword is a way of wrapping a function in a promise.
+
+The await keyword will pause the execution of the function while it 
+awaits for the asynchronous operation to be resolved 
+
+
+Using a fetch, I would follow the fetch with two .then() functions 
+first to  
+
+function getAxiosUserData(){
+  return axios.get('http://localhost:3000/users')
+}
+
+getAxiosUserData()
+.then(response => console.log(response.data))
+//Prints the user data saved in localhost:3000/users
+
+async function getUserData(){
+  const result = await axios.get('http://localhost:3000/users')
+  console.log(result.data)
+}
+
+getUserData()
+//Prints the same user data saved in localhost:3000/users
+
+It will await for the fetch to be resolved before moving on 
+to the next function 
+
+
+the axios.get('http://localhost:3000/users')
+Will run with the await keyword 
+JavaScript will not run until that promise is resolved
+Then the function will move on by console.log() on the result keyword 
+
+
+Usually console.log(result.data)
+//will return undefined b/c the promise is not resolved yet when console.log() is run 
+
+Note that you can only use await inside an async function. 
+
+Async still uses promises, its just easier to read. 
+As doing more asynchronous operations, its easier to see the order of which functions are running first 
+
+the axios.get('http://localhost:3000/users')
+Will run with the await keyword
+JavaScript will not run until that promise is resolved
+Then the function will move on by console.log() on the result keyword
 
 
 
