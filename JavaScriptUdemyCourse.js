@@ -5202,5 +5202,35 @@ Will run with the await keyword
 JavaScript will not run until that promise is resolved
 Then the function will move on by console.log() on the result keyword
 
+const moveX = (element, amount, delay ) => {
+  
+  if (){
+    reject({ bodyBoundary, elRight, amount})
+  }
+  else {
+    element.styletrtansformse 
+    resolve()
+  }
+}
+
+If we have enough room, the promise is moved. 
+
+async function animateRight(el) {
+  await moveX(el, 100, 1000);
+  await moveX(el, 100, 1000);
+  await moveX(el, 100, 1000);
+  await moveX(el, 100, 1000);
+  await moveX(el, 100, 1000);
+  await moveX(el, 100, 1000);
+}
+
+animateRight(button).catch(err => {
+  console.log(err)
+});
+
+Just add await and async 
+
+
+
 
 
