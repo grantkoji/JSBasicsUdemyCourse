@@ -5230,7 +5230,34 @@ animateRight(button).catch(err => {
 
 Just add await and async 
 
-
+return ( 
+  <View style={styles.container}>
+      <TouchableWithoutFeedback 
+      onPress={
+          () => {
+              props.navigation.navigate({routeName: 'Email'})
+          }
+      }>
+          <View>
+              <View style={styles.headerImageContainer}>
+                  <Image 
+                  source={require('../images/box_crest_logo.png')}
+                  style={styles.image} 
+                  resizeMode='cover' />
+              </View>
+              <View style={styles.imageContainer}>
+                  <Image 
+                  source={require('../images/logo_w_text.png')}
+                  style={styles.image} 
+                  resizeMode='cover' />
+              </View>
+              <View>
+                  <MTLightText style={styles.text}>Click Anywhere to Get Started</MTLightText>
+              </View>
+          </View>
+      </TouchableWithoutFeedback>
+  </View>
+);
 
 
 
